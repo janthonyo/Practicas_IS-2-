@@ -23,6 +23,8 @@ printf("Hola mundo!\n");
 
 ---
 
+Manuel Mariscal
+
 6. Negrita
 
 **Texto en negrita**
@@ -38,5 +40,5 @@ printf("Hola mundo!\n");
 
 9. Lista anidada
 
-	*primer nivel
-	*segundo nivel
+	* primer nivel
+	* segundo nivel
