@@ -192,5 +192,58 @@ git ls-tree master ^3
 git log --oneline
 ~~
 
+30. Log con los 3 ultimos commits en una linea
+
+~~
+git log --oneline -3
+~~
+
+31. Examinar el contenido de un commit
+
+~~
+git show <id>
+~~
+
+32. Comparar un commit con el actual
+
+~~
+git diff <id> nombre_archivo
+~~
+
+33. Comparar dos commits
+
+~~
+git diff if..id nombre archivo
+~~
+
+34. Ver listado de ramas
+
+~~
+*git branch*
+~~
+
+35. Crear una rama
+
+~~
+git branch nombre_rama
+~~
+
+36. Cambiarnos a una rama
+
+~~
+git checkout nombre_rama
+~~
+
+37. Crear una rama y moverse en un paso
+
+~~
+git checkout -b nombre_rama
+~~
+
+38. Comparar ramas
+
+~~
+git diff nombre_rama..nombre_rama
+~~
 
 
