@@ -42,3 +42,9 @@ Manuel Mariscal
 
 	* primer nivel
 	* segundo nivel
+
+10. Encabezados 
+
+#Encabezado primer nivel.
+##Encabezado segundo nivel.	
+###Encabezado tercer nivel.
