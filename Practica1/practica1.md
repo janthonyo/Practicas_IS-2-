@@ -45,9 +45,9 @@ Manuel Mariscal
 
 10. Encabezados 
 
-#Encabezado primer nivel.
-##Encabezado segundo nivel.	
-###Encabezado tercer nivel.
+# Encabezado primer nivel.
+## Encabezado segundo nivel.	
+### Encabezado tercer nivel.
 
 11. Citas en bloque
 
