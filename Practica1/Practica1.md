@@ -146,6 +146,51 @@ git reset HEAD nombre_fichero
 git commit --amend -m "Mensaje"
 ~~
 
+23. Recuperar version de un fichero de commit antigo
+
+~~
+git checkout <id_commit> --nombre_archivo
+~~
+24. Revertir un commit
+
+~~
+git revert <id_commit>
+~~
+
+25. Deshacer multiples cambios en el repositorio
+
+~~
+git reset --soft <id_commit>
+git reset --mixed <id_commit>
+git reset --hard <id_commit>
+~~
+
+
+26. Listar archivos que git no controla
+
+~~
+git clean -n
+~~
+
+27. Eliminar archivos que git no controla
+
+~~
+git clean -n
+~~
+
+28. Listar el contenido del repositorio de git
+
+~~
+git ls-tree master
+git ls-tree master ^^^
+git ls-tree master ^3
+~~
+
+29. Log en una linea
+
+~~
+git log --oneline
+~~
 
 
 
