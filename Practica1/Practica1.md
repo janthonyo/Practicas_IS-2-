@@ -142,138 +142,138 @@ git reset HEAD nombre_fichero
 
 22. Complementar ultimo commit
 
-~~
+~~~
 git commit --amend -m "Mensaje"
-~~
+~~~
 
 23. Recuperar version de un fichero de commit antigo
 
-~~
+~~~
 git checkout <id_commit> --nombre_archivo
-~~
+~~~
 24. Revertir un commit
 
-~~
+~~~
 git revert <id_commit>
-~~
+~~~
 
 25. Deshacer multiples cambios en el repositorio
 
-~~
+~~~
 git reset --soft <id_commit>
 git reset --mixed <id_commit>
 git reset --hard <id_commit>
-~~
+~~~
 
 
 26. Listar archivos que git no controla
 
-~~
+~~~
 git clean -n
-~~
+~~~
 
 27. Eliminar archivos que git no controla
 
-~~
+~~~
 git clean -n
-~~
+~~~
 
 28. Listar el contenido del repositorio de git
 
-~~
+~~~
 git ls-tree master
 git ls-tree master ^^^
 git ls-tree master ^3
-~~
+~~~
 
 29. Log en una linea
 
-~~
+~~~
 git log --oneline
-~~
+~~~
 
 30. Log con los 3 ultimos commits en una linea
 
-~~
+~~~
 git log --oneline -3
-~~
+~~~
 
 31. Examinar el contenido de un commit
 
-~~
+~~~
 git show <id>
-~~
+~~~
 
 32. Comparar un commit con el actual
 
-~~
+~~~
 git diff <id> nombre_archivo
-~~
+~~~
 
 33. Comparar dos commits
 
-~~
+~~~
 git diff if..id nombre archivo
-~~
+~~~
 
 34. Ver listado de ramas
 
-~~
+~~~
 *git branch*
-~~
+~~~
 
 35. Crear una rama
 
-~~
+~~~
 git branch nombre_rama
-~~
+~~~
 
 36. Cambiarnos a una rama
 
-~~
+~~~
 git checkout nombre_rama
-~~
+~~~
 
 37. Crear una rama y moverse en un paso
 
-~~
+~~~
 git checkout -b nombre_rama
-~~
+~~~
 
 38. Comparar ramas
 
-~~
+~~~
 git diff nombre_rama..nombre_rama
-~~
+~~~
 
 39. Ver ramas identicas a la actual
 
-~~
+~~~
 git branch --merged
-~~
+~~~
 
 40. Renombrar ramas
 
-~~
+~~~
 git branch -m nombre_antiguo nombre_nuevo
-~~
+~~~
 
 41. Eliminar ramas
 
-~~
+~~~
 git branch -d nombre_rama
 git branch -D nombre_rama
-~~
+~~~
 
 42. Integrar ramas a la actual
 
-~~
+~~~
 git merge nombre_rama
-~~
+~~~
 
-43. Resolver conflictos (se suele hacer manualmente)
+43. **Resolver conflictos (se suele hacer manualmente)**
 
-~~
+~~~
 git merge --abort
-~~
+~~~
 
