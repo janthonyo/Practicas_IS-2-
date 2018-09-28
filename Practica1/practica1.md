@@ -48,3 +48,9 @@ Manuel Mariscal
 #Encabezado primer nivel.
 ##Encabezado segundo nivel.	
 ###Encabezado tercer nivel.
+
+11. Citas en bloque
+
+>Las citas en bloque deben empezar y terminar con una linea en blanco.
+
+
