@@ -23,4 +23,20 @@ printf("Hola mundo!\n");
 
 ---
 
+6. Negrita
 
+**Texto en negrita**
+
+7. Cursiva
+
+*Texto en negrita*
+
+8. Lista con viñetas
+
+        1. primera linea
+        2. segunda linea
+
+9. Lista anidada
+
+*primer nivel
+*segundo nivel
