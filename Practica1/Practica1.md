@@ -138,6 +138,14 @@ git checkout -- nombre_fichero
 git reset HEAD nombre_fichero
 ~~~
 
----
+## Antonio Jose Sanchez Moscoso
+
+22. Complementar ultimo commit
+
+~~
+git commit --amend -m "Mensaje"
+~~
+
+
 
 
