@@ -53,4 +53,6 @@ Manuel Mariscal
 
 >Las citas en bloque deben empezar y terminar con una linea en blanco.
 
+12. Código en Línea
 
+'Esto es un código en línea'
