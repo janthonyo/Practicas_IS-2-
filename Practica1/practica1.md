@@ -23,6 +23,8 @@ printf("Hola mundo!\n");
 
 ---
 
+---
+
 **Manuel Mariscal**
 
 6. Negrita
@@ -42,6 +44,8 @@ printf("Hola mundo!\n");
 
 	* primer nivel
 	* segundo nivel
+
+---
 
 **Antonio José Sánchez Moscoso**
 
