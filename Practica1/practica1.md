@@ -1,5 +1,5 @@
 
-Jose Antonio Martínez Molina
+**Jose Antonio Martínez Molina**
 
 1. Bloques de código
 
@@ -23,7 +23,7 @@ printf("Hola mundo!\n");
 
 ---
 
-Manuel Mariscal
+**Manuel Mariscal**
 
 6. Negrita
 
@@ -31,7 +31,7 @@ Manuel Mariscal
 
 7. Cursiva
 
-*Texto en negrita*
+*Texto en cursiva*
 
 8. Lista con viñetas
 
@@ -44,6 +44,7 @@ Manuel Mariscal
 	* segundo nivel
 
 **Antonio José Sánchez Moscoso**
+
 10. Encabezados 
 
 # Encabezado primer nivel.
