@@ -246,4 +246,34 @@ git checkout -b nombre_rama
 git diff nombre_rama..nombre_rama
 ~~
 
+39. Ver ramas identicas a la actual
+
+~~
+git branch --merged
+~~
+
+40. Renombrar ramas
+
+~~
+git branch -m nombre_antiguo nombre_nuevo
+~~
+
+41. Eliminar ramas
+
+~~
+git branch -d nombre_rama
+git branch -D nombre_rama
+~~
+
+42. Integrar ramas a la actual
+
+~~
+git merge nombre_rama
+~~
+
+43. Resolver conflictos (se suele hacer manualmente)
+
+~~
+git merge --abort
+~~
 
