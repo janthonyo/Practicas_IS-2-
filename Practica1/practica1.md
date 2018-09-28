@@ -38,5 +38,5 @@ printf("Hola mundo!\n");
 
 9. Lista anidada
 
-*primer nivel
-*segundo nivel
+	*primer nivel
+	*segundo nivel
