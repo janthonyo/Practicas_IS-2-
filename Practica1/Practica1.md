@@ -370,40 +370,21 @@ git clone url
 
 #### Dar seguimiento a branches remotos
 
-57. Listar los commits por autor
+57. LOCAL -> REMOTO
+	* Cambios en el repositorio local
+	* Commit de los cambios
+	* Añadir cambios al repositorio remoto
+		~~~
+		git push
+		~~~
 
-~~~
-git log --author="Jose Antonio"
-~~~
-
-58. Ver cambios en el directorio
-
-~~~
-git status
-~~~
-
-59. Ver diferencias entre ficheros en el directorio y el repositorio de Git
-
-~~~
-git diff
-~~~
-
-60. Ver diferencia entre ficheros en el *staging* y el repositorio
-
-~~~
-git diff --staged
-~~~
-
-61. Eliminar archivos
-
-~~~
-git rm archivo
-git commit -m "Archivo ..... eliminado"
-~~~
-
-62. Mover o renombrar archivos
-
-~~~
-git mv antiguo nuevo
-git commit -m "Archivo .... movido/renombrado a ..."
-~~~
+58. REMOTO -> LOCAL
+	* Sincronizacion y union
+		~~~
+		git fetch origin
+		git merge origin/master
+		~~~	
+	* En un solo paso
+		~~~
+		git pull
+		~~~
