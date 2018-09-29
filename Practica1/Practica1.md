@@ -388,3 +388,28 @@ git clone url
 		~~~
 		git pull
 		~~~
+
+
+#### Operaciones con branches remotos
+
+59. Creacion
+	* Crear brach local
+	* Hacer cambios en dicho branch
+	* Hacer commit
+	* Copiar el branch al repositorio remoto:
+		~~~
+		git push -u origin branch_remoto
+		~~~
+
+60. Copia
+
+~~~
+git ceckout -b local remoto
+~~~
+
+61. Eliminación
+
+~~~
+git push origin --delete branch_remoto
+~~~
+
