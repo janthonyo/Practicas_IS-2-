@@ -277,3 +277,133 @@ git merge nombre_rama
 git merge --abort
 ~~~
 
+## Manuel Jesus Mariscal Romero
+
+### Comandos de ramas III
+
+44. Almacenar cambios temporales
+
+~~~
+git stash save "Mensaje"
+~~~
+
+45. Listar cambios
+
+~~~
+git stash list
+~~~
+
+46. Ver contenido de un cambio temporal
+
+~~~
+git stash show -p nombre_stash
+~~~
+
+47. Eliminar un cambio temporal
+
+~~~
+git stash drop nombre_stash
+~~~
+
+48. Aplicar cambio del stash
+
+~~~
+git stash apply nombre_stash
+git stash pop nombre_stash
+~~~
+
+---
+
+### Comandos Github I
+
+49. Añadir repositorio remoro
+
+~~~
+git remote add origin url
+~~~
+
+50. Ver repositorios remotos
+
+~~~
+git remote -v
+~~~
+
+51. Eliminar repositorio remoto
+
+~~~
+git remote rm origin
+~~~
+
+52. Añadir cambios del repositorio local al remoto
+
+~~~
+gil push -u origin master
+~~~
+
+53. Añadir cambios del repositorio remoto al local 
+
+~~~
+git pull origin master
+~~~
+
+---
+
+### Comandos Github II
+
+54. Ver branches remotos
+
+~~~
+git branch -r
+~~~
+
+55. Ver todos los branches
+
+~~~
+git branch -a
+~~~
+
+56. Clonar un repositorio remoto
+
+~~~
+git clone url
+~~~
+
+#### Dar seguimiento a branches remotos
+
+57. Listar los commits por autor
+
+~~~
+git log --author="Jose Antonio"
+~~~
+
+58. Ver cambios en el directorio
+
+~~~
+git status
+~~~
+
+59. Ver diferencias entre ficheros en el directorio y el repositorio de Git
+
+~~~
+git diff
+~~~
+
+60. Ver diferencia entre ficheros en el *staging* y el repositorio
+
+~~~
+git diff --staged
+~~~
+
+61. Eliminar archivos
+
+~~~
+git rm archivo
+git commit -m "Archivo ..... eliminado"
+~~~
+
+62. Mover o renombrar archivos
+
+~~~
+git mv antiguo nuevo
+git commit -m "Archivo .... movido/renombrado a ..."
+~~~
