@@ -16,7 +16,7 @@ Como profesor quiero poder guardar una copia de los datos de los alumnos para ca
 ---
 
 
-	* Quiero poder guardar una copia de seguridad de los datos
+ * Quiero poder guardar una copia de seguridad de los datos
 
 ---
 
