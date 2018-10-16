@@ -15,7 +15,7 @@ Como profesor quiero poder actuar sobre los datos guardados por seguridad
 
 ---
 
-	* Quiero poder trabajar sobre la nueva informacion.
-	* Quiero poder visualizar los datos guardados de los alumnos.
+ * Quiero poder trabajar sobre la nueva informacion.
+ * Quiero poder visualizar los datos guardados de los alumnos.
 
 ---
