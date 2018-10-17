@@ -13,7 +13,7 @@
 ---
 **Precondiciones:**
 
- 1. El alumno debe existir en el sistema
+ 1. El alumno debe estar matriculado en el centro.
 
 
 **Flujo principal:**
