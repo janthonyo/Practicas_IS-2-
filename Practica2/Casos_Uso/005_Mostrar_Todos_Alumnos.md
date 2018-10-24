@@ -3,9 +3,13 @@
 **ID**: 005
 **Breve descripción**: El sistema muestra todos los alumnos.
 
+---
+
 **Actores principales**: Profesor.
 
 **Actores secundarios**: Alumno.
+
+---
 
 **Precondiciones:**
 
