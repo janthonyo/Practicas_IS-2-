@@ -4,6 +4,7 @@
 **Breve descripción**: El sistema busca un grupo y muestra sus alumnos.
 
 **Actores principales**: Profesor.
+
 **Actores secundarios**: Alumno.
 
 **Precondiciones:**
