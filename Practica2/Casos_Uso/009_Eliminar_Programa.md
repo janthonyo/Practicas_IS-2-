@@ -3,9 +3,13 @@
 **ID**: 009
 **Breve descripción**: El sistema borra la base de datos.
 
+---
+
 **Actores principales**: Profesor.
 
 **Actores secundarios**: Ninguno.
+
+---
 
 **Precondiciones:**
 
