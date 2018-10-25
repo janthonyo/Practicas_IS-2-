@@ -1,4 +1,4 @@
-## Buscar alumno
+## Eliminar el programa
 
 **ID**: 009
 **Breve descripción**: El sistema borra la base de datos.
