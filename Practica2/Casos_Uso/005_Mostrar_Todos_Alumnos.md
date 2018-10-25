@@ -1,4 +1,4 @@
-## Buscar alumno
+## Mostrar todos los alumnos
 
 **ID**: 005
 **Breve descripción**: El sistema muestra todos los alumnos.
@@ -13,13 +13,13 @@
 
 **Precondiciones:**
 
-1. Debe existir una base de datos, o en caso de que exista mas de una, debe seleccionarse una.
+1. Debe existir una base de datos, o en caso de que exista más de una, debe seleccionarse una.
 
 
 **Flujo principal:**
 
 1. El caso de uso empieza cuando el sistema necesita mostrar todos los alumnos.
-2. El sistema recoge los datos de todos los alumnos, indicando su grupo y señalando al lider.
+2. El sistema recoge los datos de todos los alumnos, indicando su grupo y señalando al líder.
 
 **Postcondiciones:**
 

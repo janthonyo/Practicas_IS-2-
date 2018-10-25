@@ -1,4 +1,4 @@
-## Buscar alumno
+## Mostrar alumnos por grupo
 
 **ID**: 006
 **Breve descripción**: El sistema busca un grupo y muestra sus alumnos.
@@ -13,13 +13,13 @@
 
 **Precondiciones:**
 
-1. Los alumnos deben estar incluidos en algun grupo.
+1. Los alumnos deben estar incluidos en algún grupo.
 
 
 **Flujo principal:**
 
 1. El caso empieza cuando el programa necesita mostrar los alumnos filtrados por grupo.
-2. El recoge mustra los alumnos del grupo seleccionado junto con sus datos, asi como indica quien es el lider.
+2. El sistema recoge los alumnos del grupo seleccionado junto con sus datos e indica quien es el líder.
 
 **Postcondiciones:**
 
