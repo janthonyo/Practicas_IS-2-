@@ -4,7 +4,7 @@ Documento para la extracción de requisitos.
 
 # Descripción de problema.
 
- * El profesor de la asignatura de Ingeniería de Software desea gestionar los datos referentes a los alumnos del Grado de Ingeniería Informática.
+ * El profesor de la asignatura de Ingeniería de Software desea gestionar los datos referentes a los alumnos del Grado de Ingeniería Informática. Los datos que se guardarán serán: DNI, nombre, apellidos, dirección, fecha de nacimiento, número del grupo en el que participa y si es líder o no de dicho grupo.
 
  * El usuario podrá introducir los datos de un alumno de nuevo ingreso.
 
@@ -31,6 +31,12 @@ Documento para la extracción de requisitos.
 
  * El sistema permitirá al profesor: modificar, insertar y borrar cualquier dato de un alumno.
 
+ * Para la inserción de alumnos, el sistema exigirá como datos mínimos: DNI, nombre, apellidos, teléfono, mail corporativo, Dirección, curso más alto matriculado, fecha de nacimiento.
+
+ * Para la búsqueda de alumnos, se buscará primero por el apellido y en caso de coincidencia se buscará por su DNI.
+
+ * Para mostrar los alumnnos el sistema pedirá tipo de orden en el que desean ser mostrados.
+
  * El sistema deberá mostrar todos los datos de uno o todos los alumnos que se encuentren registrados en la base de datos.
 
  * El sistema deberá destacar el grupo al que pertenece dicho alumno y el lider correspondiente.
@@ -41,13 +47,12 @@ Documento para la extracción de requisitos.
 
  * El sistema podrá eliminar todos los datos de los alumnos.
 
- * El sistema no podrá superar los 150 alumnos registrados.
 
 ## REQUISITOS NO FUNCIONALES
 
- * El sistema debe visualizarse y funcionar correctamente en sistemas Linux.
+ * El sistema no podrá superar los 150 alumnos registrados.
 
- * Para la inserción de alumnos, el sistema exigirá como datos mínimos: DNI, nombre, apellidos, teléfono, mail corporativo, Dirección, curso más alto matriculado, fecha de nacimiento.
+ * El sistema debe visualizarse y funcionar correctamente en sistemas Linux.
 
  * Para la búsqueda de alumnos, se buscará primero por el apellido y en caso de coincidencia se buscará por su DNI.
 
@@ -56,4 +61,3 @@ Documento para la extracción de requisitos.
  * Al borrar al alumno líder de un grupo, el sistema podrá dejar a dicho grupo sin líder.
 
  * Para eliminar a un alumno, el sistema lo buscará por su apellido asegurando por su DNI en caso de coincidencia.
-
