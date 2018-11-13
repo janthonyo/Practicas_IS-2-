@@ -2,9 +2,20 @@
 
 Documento para la extracción de requisitos.
 
+#ÍNDICE
+
+ * Descripción de problema
+ * Partes Interesadas
+ * Datos a almacenar
+ * Requisitos
+
+  * Requisitos Funcionales
+  * Requisitos No Funcionales
+  * Priorización de Requisitos
+
 # Descripción de problema.
 
- * El profesor de la asignatura de Ingeniería de Software desea gestionar los datos referentes a los alumnos del Grado de Ingeniería Informática. Los datos que se guardarán serán: DNI, nombre, apellidos, dirección, fecha de nacimiento, número del grupo en el que participa y si es líder o no de dicho grupo.
+ * El profesor de la asignatura de Ingeniería de Software desea gestionar los datos referentes a los alumnos del Grado de Ingeniería Informática.
 
  * El usuario podrá introducir los datos de un alumno de nuevo ingreso.
 
@@ -16,36 +27,49 @@ Documento para la extracción de requisitos.
 
  * Por último, podrá visualizar los datos de todos sus alumnos.
 
+## Partes Interesadas
+
+Las partes interesadas seran aquellos profesores que usen nuestro programa para la gestión y control de los alumnos que se encuentren en sus clases.
+
+## Datos a almacenar
+
+Los datos que se guardarán serán: 
+
+* DNI
+* Nombre
+* Apellidos
+* Teléfono
+* Mail corporativo
+* Dirección
+* Fecha de nacimiento
+* Número del grupo en el que participa
+* ¿Es el líder de su grupo? (Si/No)
+
+*Estos dos últimos serán opcionales.*
+
 
 # REQUISITOS 
 
 *¿Qué características debe tener este sistema para satisfacer las necesidades de nuestro cliente?*
 
-## REQUISITOS USUARIO 
-
- * El profesor podrá gestionar la información de sus alumnos en dicho programa.
 
 ## REQUISITOS FUNCIONALES
 
- * El sistema debe registrar toda la información de los alumnos.
+ * **ID: 000. Log In**: El sistema permitirá unicamente el acceso a la aplicación a aquellos profesores.
 
- * El sistema permitirá al profesor: modificar, insertar y borrar cualquier dato de un alumno.
+ * **ID: 001. Introducir Alumno:** El sistema permitirá insertar los datos de un alumno de nuevo ingreso.
 
- * Para la inserción de alumnos, el sistema exigirá como datos mínimos: DNI, nombre, apellidos, teléfono, mail corporativo, Dirección, curso más alto matriculado, fecha de nacimiento.
+ * **ID: 002. Modificar Alumno:** El sistema permitirá al profesor modificar cualquier dato de un alumno.
 
- * Para la búsqueda de alumnos, se buscará primero por el apellido y en caso de coincidencia se buscará por su DNI.
+ * **ID: 003. Eliminar alumno:** El sistema permitirá al profesor borrar a un alumno existente en el sistema.
 
- * Para mostrar los alumnnos el sistema pedirá tipo de orden en el que desean ser mostrados.
+ * **ID: 004. Buscar alumno:** El sistema buscara los datos de uno o varios alumnos y los mostrará. Se buscará primero por su apellido y, en caso de coincidencia, se buscará por su DNI.
 
- * El sistema deberá mostrar todos los datos de uno o todos los alumnos que se encuentren registrados en la base de datos.
+ * **ID: 005. Mostrar alumno:** El sistema pedirá el tipo de orden en el que desean ser mostrados. Podran mostrarse los datos de uno, varios o todos los alumnos existentes en el sistema.
 
- * El sistema deberá destacar el grupo al que pertenece dicho alumno y el lider correspondiente.
+ * **ID: 006. Guardar Copia de Seguridad:** El sistema permitirá hacer una copia de seguridad de los datos almacenados hasta el momento.
 
- * El sistema permitirá hacer una copia de seguridad de los datos almacenados hasta el momento.
-
- * El sistema permitirá cargar la copia de seguridad.
-
- * El sistema podrá eliminar todos los datos de los alumnos.
+ * **ID: 007. Cargar Copia de Seguridad:** El sistema permitirá cargar la copia de seguridad.
 
 
 ## REQUISITOS NO FUNCIONALES
@@ -54,10 +78,17 @@ Documento para la extracción de requisitos.
 
  * El sistema debe visualizarse y funcionar correctamente en sistemas Linux.
 
- * Para la búsqueda de alumnos, se buscará primero por el apellido y en caso de coincidencia se buscará por su DNI.
+ * El lenguaje de programación será C++ y se empleará el lenguaje Markdown para documentarlo.
 
- * Para mostrar los alumnnos el sistema pedirá tipo de orden en el que desean ser mostrados.
+ * El sistema almacenará la infórmación en ficheros binarios.
 
- * Al borrar al alumno líder de un grupo, el sistema podrá dejar a dicho grupo sin líder.
+ * El programa será mostrado y utilizado a través de línea de comandos.
 
- * Para eliminar a un alumno, el sistema lo buscará por su apellido asegurando por su DNI en caso de coincidencia.
+ * Solo podrá ser empleado por aquellos profesores que consten como tal por la Universidad, teniendo que introducir su usuario y contraseña para acceder.
+
+ * El programa tendrá funcionalidad durante un curso, siendo borrados los datos almacenados al año siguiente.
+
+
+## Priorización de requisitos
+
+
