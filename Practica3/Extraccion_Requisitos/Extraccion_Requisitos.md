@@ -2,7 +2,7 @@
 
 Documento para la extracción de requisitos.
 
-####ÍNDICE
+#### ÍNDICE
 
  * Descripción de problema
  * Partes Interesadas
@@ -97,16 +97,16 @@ Los datos que se guardarán serán:
 
 ## Priorización de requisitos
 
-* **ID: 000. Log In**: **1**
-* **ID: 001. Introducir Alumno**: **1**
-* **ID: 002. Modificar Alumno**: **4**
-* **ID: 003. Eliminar Alumno**: **4**
-* **ID: 004. Buscar Alumno**: **1**
-* **ID: 005. Mostrar Alumno**: **3**
-* **ID: 006. Guardar Base de Datos**: **2**
-* **ID: 007. Cargar Base de Datos**: **2**
-* **ID: 008. Guardar Copia de Seguridad Externa**: **2**
-* **ID: 009. Cargar Copia de Seguridad Externa**: **2**
+* **ID: 000. Log In**: **'1'**
+* **ID: 001. Introducir Alumno**: **'1'**
+* **ID: 002. Modificar Alumno**: **'4'**
+* **ID: 003. Eliminar Alumno**: **'4'**
+* **ID: 004. Buscar Alumno**: **'1'**
+* **ID: 005. Mostrar Alumno**: **'3'**
+* **ID: 006. Guardar Base de Datos**: **'2'**
+* **ID: 007. Cargar Base de Datos**: **'2'**
+* **ID: 008. Guardar Copia de Seguridad Externa**: **'2'**
+* **ID: 009. Cargar Copia de Seguridad Externa**: **'2'**
 
 
 
