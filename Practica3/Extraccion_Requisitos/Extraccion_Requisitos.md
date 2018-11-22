@@ -76,7 +76,9 @@ Los datos que se guardarán serán:
  * **ID: 007. Cargar Base de Datos:** El sistema permitirá cargar la copia de seguridad.
 
  * **ID: 008. Guardar copia de seguridad externa:** El sistema nos permitirá guardar una copia en un servidor externo.
+
  * **ID: 009. Cargar copia de seguridad externa:** El sistema dará la opción de poder cargar dicha copia.
+
 
 ## REQUISITOS NO FUNCIONALES
 
