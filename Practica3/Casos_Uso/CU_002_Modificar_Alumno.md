@@ -30,5 +30,5 @@
  * El sistema muestra dicho mensaje: "Modificación aceptada".
 
 **Flujos alternativos:**
- 1 El sistema no podrá modificar alumnos que no se encuentren en la base de datos.
- 2 Como mínimo se deben introducir los campos obligatorios, de no ser así, el sistema mostrará un mensaje indicando que no la modificación no ha sido aceptada.
+ 1. El sistema no podrá modificar alumnos que no se encuentren en la base de datos.
+ 2. Como mínimo se deben introducir los campos obligatorios, de no ser así, el sistema mostrará un mensaje indicando que no la modificación no ha sido aceptada.
