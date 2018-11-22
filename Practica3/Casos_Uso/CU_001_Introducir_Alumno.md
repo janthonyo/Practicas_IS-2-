@@ -36,6 +36,5 @@
  1. En el sistema debe de haber menos de 150 alumnos, de lo contrario mostrará un mensaje de error al introducir el nuevo alumno.
  2. Si no recogen los datos obligatorios, el alumno no será incorporado en la base de datos.
  3. Por defecto,el campo lider tendrá el valor NULL.
- 3.1 Si se introduce el campo líder, oblihatoriamente habrá que indicar al grupo al que pertenece.
-
- 3.2 El sistema no permitirá indicar al nuevo alumno la opicón de líder en el grupo que haya indicado, si éste ya posee un líder.
+ + Si se introduce el campo líder, obligatoriamente habrá que indicar al grupo al que pertenece.
+ + El sistema no permitirá indicar al nuevo alumno la opicón de líder en el grupo que haya indicado, si éste ya posee un líder.
