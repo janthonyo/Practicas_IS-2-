@@ -1,8 +1,8 @@
-## Introducir alumno
+## Log In
 
-**ID:** 001 
+**ID:** 000 
 
-**Breve descripción:** El usuario debe introducir los datos del alumno de nuevo ingreso.
+**Breve descripción:** El usuario debe introducir su usuario y contraseña para acceder al sistema
  
 ---
 
@@ -13,28 +13,33 @@
 ---
 **Precondiciones:**
 
- 1. El alumno debe estar matriculado en el centro.
- 2. El numero de alumnos será inferior a 150.
+ 1. El coordinador y los ayudantes deben estar reconocidos por el centro.
 
 
 **Flujo principal:**
 
- 1. El caso de uso empieza cuando nos pide los datos del nuevo alumno.
- 2. El sistema comprueba el numero de alumnos que hay en la base de datos.
- 3. El sistema almacena los datos obligatorios del alumno y los no obligatorios que el profesor desee introducir.
- 3.1 Los datos obligatorios que deben aparecer para el nuevo alumno introducido, serán el DNI, nombre y apellidos.
- 4. El sistema comprueba si el grupo del nuevo alumno posee ya líder.
- 5. El sistema introduce al alumno.
- 6. El sistema comprueba que se ha introducido correctamente.
+ 1. El caso de uso empieza cuando un profesor o ayudante decide acceder al sistema.
+ 2. El sistema pide el nombre de usuario y la contraseña para acceder.
+ 3. El sistema comprueba si los datos introducidos son correctos.
+ 4. El sistema permite el acceso a la aplicacion.
+
 
 **Postcondiciones:**
 
- * El sistema muestra un mensaje con los datos obligatorios del nuevo alumno.
- * Actualización de la base de datos.
+ * El sistema muestra un menu de las diferentes opciones a escoger.
 
 **Flujos alternativos:**
- 1 En el sistema debe de haber menos de 150 alumnos, de lo contrario mostrará un mensaje de error al introducir el nuevo alumno.
- 2.a. Si no recogen los datos obligatorios, el alumno no será incorporado en la base de datos.
- 3 Por defecto,el campo lider tendrá el valor NULL.
- 3.1 Si se introduce el campo líder, oblihatoriamente habrá que indicar al grupo al que pertenece.
- 3.2 El sistema no permitirá indicar al nuevo alumno la opicón de líder en el grupo que haya indicado, si éste ya posee un líder.
+
+ 2.a. Si no se introduce ningun campo, el sistema pedira que sean introducidos el usuario y la contraseña.
+
+ 2.b. Si no se introduce el usuario, el sistema pedira que se vuelvan a introducir los datos.
+
+ 2.c. Si no se introduce la contraseña, el sistema pedira que sea introducida.
+
+ 3.a. Si los datos introducidos no existen en la Base de Datos, el sistema no permitira el acceso y saldra.
+
+ 4.a. Si el usuario es identificado como profesor, se le mostrara el menu con todas las opciones.
+
+ 4.b. Si el usuario es identificado como ayudante, se le mostrara el menu con todas las opciones, a excepción de aquellas referidas a las copias de seguridad.
+
+
