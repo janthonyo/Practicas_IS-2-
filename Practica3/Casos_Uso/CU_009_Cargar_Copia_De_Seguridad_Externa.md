@@ -1,8 +1,7 @@
-## Cargar copia
+## Cargar copia de seguridad externa
+**ID:** 009
 
-**ID:** 008
-
-**Breve descripción:** El sistema carga una copia de seguridad.
+**Breve descripción:** El usuario podrá cargar una copia de seguridad externa.
  
 ---
 
@@ -13,18 +12,20 @@
 ---
 **Precondiciones:**
 
- 1. Debe haber, al menos, una copia de seguridad hecha
+ 1. La copia de seguridad debe haber sido previamente guardada.
 
 
 **Flujo principal:**
 
- 1. El caso de uso empieza cuando el sistema necesita cargar una copia de seguridad
- 2. El sistema abre el fichero que contiene los datos de la copia de seguridad
+ 1. El caso de uso empieza cuando el profesor desea cargar una copia de seguridad.
+ 2. El sistema muestra la opción al usuario de que copia de seguridad desea cargar.
+ 3. El sistema carga la copia de seguridad.
+ 4. El sistema comprueba que se ha cargado correctamente.
 
 **Postcondiciones:**
 
- * El sistema borra los datos actuales del sistema y carga los datos guardados en la copia de seguridad. 
-
+ * El sistema muestra un mensaje de confirmación de que la carga se ha realizado correctamente.
+ * El sistema permite sobrescribir los datos de la base de datos.
 **Flujos alternativos:**
-
- 2.a. Si la copia de seguridad no existe, el sistema muestra un mensaje de error.
+ 1. Si no hay copias de seguridad guardadas, el sistema mostrará un mensaje de error, donde indicará al usuario que cree una copia de seguridad para poder cargarla.
+ 2. Si el sistema no puede cargar la base de datos, mostrará un mensaje de error, indicando  que no ha sido posible cargar la copia.
