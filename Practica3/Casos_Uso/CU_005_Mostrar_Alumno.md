@@ -1,7 +1,7 @@
 ## Mostrar alumno/s
 
 **ID**: 005
-**Breve descripción**: El sistema busca uno, varios o todos los alumos de la Base de Datos y muestra sus datos
+**Breve descripción**: El sistema busca uno, varios o todos los alumos de la Base de Datos y muestra sus datos.
 
 ---
 
