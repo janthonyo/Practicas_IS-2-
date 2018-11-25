@@ -12,6 +12,6 @@ El sistema muestra la fecha de la última copia de seguridad y pregunta al usuar
  
    * En caso de encontrar datos el sistema entra en un bloque **ALT** y mostrará un mensaje de éxito antes de finalizar:
 
-     1. Sobreescribir la última copia: el sistema borra la última copia, guarga la nueva y la envía al servidor.
+     * Sobreescribir la última copia: el sistema borra la última copia, guarda la nueva y la envía al servidor.
 
-     2. Mantener la última copia: El sistema guarda la última copia y la envía al servidor.
+     * Mantener la última copia: El sistema guarda la última copia y la envía al servidor.
