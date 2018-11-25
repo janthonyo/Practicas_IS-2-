@@ -1,5 +1,4 @@
 ## DS 005: Mostrar Alumno
-<<<<<<< HEAD
 
 Comienza cuando el profesor solicita mostrar un alumno, para lo cual la interfaz pregunta que opción de mostrado va a elegir, y el usuario si desea ver un alumno , varios o todos.
 
