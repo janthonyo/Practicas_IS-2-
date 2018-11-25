@@ -6,7 +6,7 @@ El sistema muestra la fecha de la última copia de seguridad y pregunta al usuar
 
  * Si indica *no*, la copia termina y vuelve a mostrar el menú.
 
- * Si indica *sí*, el sistema entra en un bloque **LOOP** y para obtener todos los datos de la base de datos. Ahora entra en otro bloque **ALT**:
+ * Si indica *sí*, el sistema entra en un bloque **LOOP** para obtener todos los datos de la base de datos. Ahora entra en otro bloque **ALT**:
 
    * Si la base de datos está vacía, muestra un mensaje de error y termina.
  
