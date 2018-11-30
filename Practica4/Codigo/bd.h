@@ -4,20 +4,23 @@
 #ifndef BD_H
 #define BD_H
 
-	#include "profesor.h"
 	#include "alumno.h"
 	#include <list>
 	#include <string>
 
 	class bd {
 		private:
-			list <Profesor> profesores_;
-			list <Alumno> alumnos_;
-			string nombre_fichero_;
+			list <Alumno> alumnos_; // lista que contiene los alumnos de la clase de is
+			string nombre_fichero_; // variable que guarda el nombre de la base de datos que se quiere cargar
 		
 		public:
-			// set para la parte privada
-			void setProfesor	
+			// observadores y modificadores para la lista de alumnos
+			void setAlumnos(Alumno alumnos);
+			Alumno getAlumnos();
+
+			// observadores y modificadores para el nombre del fichero
+			void setNombreFichero(string nombre);
+			string getNombreFichero();
 	};
 
 #endif
