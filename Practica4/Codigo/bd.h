@@ -21,6 +21,20 @@
 			// observadores y modificadores para el nombre del fichero
 			void setNombreFichero(string nombre);
 			string getNombreFichero();
+
+			// bool introducirAlumno(Alumno newAlumno)
+			// recibe como parametro un objeto alumno y lo introduce en la base de datos
+			// devuelve true si lo ha introducido y false en caso contrario
+			bool introducirAlumno(Alumno newAlumno);
+
+			// bool modificarAlumno(Alumno newAlumno)
+			// recibe como parametro un objeto alumno y busca en la base de datos una coincidencia para modificarlo
+			// puede modificar uno o varios datos
+			// devuelve true si lo ha modificado y false en caso contrario
+			bool modificarAlumno(Alumno alumno);
+
+			// ¿bool? buscarAlumno();
+
 	};
 
 #endif
