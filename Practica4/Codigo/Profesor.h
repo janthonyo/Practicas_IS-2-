@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,5 +21,5 @@ public:
 		fichero_=fichero;
 	};
 
-	//void login(std::string usuario, std::string contraseña);
+	int login(std::string usuario, std::string contrasena);
 };

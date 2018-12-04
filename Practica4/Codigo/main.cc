@@ -10,19 +10,26 @@ using namespace std;
 int main()
 {
 
-	system("clear");
+Profesor c;
 
-	Profesor p;
-	string user, key;
+system("clear");
 
-	cout << "Usuario: ";
-	cin >> user;
+int acceso=0;
 
-	system("clear");
+	while(acceso==0)
+	{
 
-	cout << "Contraseña: ";
-	cin >> key;
+		Profesor p;
+		string user, key;
 
-	//login()
+		cout << "Usuario: ";
+		cin >> user;
 
+		system("clear");
+
+		cout << "Contraseña: ";
+		cin >> key;
+
+		acceso=c.login(user, key);
+	}
 }
