@@ -11,7 +11,6 @@ int main()
 {
 
 Profesor c;
-
 system("clear");
 
 int acceso=0;
@@ -32,4 +31,13 @@ int acceso=0;
 
 		acceso=c.login(user, key);
 	}
+
+if(acceso==1)
+{
+	cout<<"----------------------------------------"<<endl<<endl;
+
+	cout<<"----------------------------------------"<<endl<<endl;
+}
+
+else if(acceso==2)
 }

@@ -14,7 +14,7 @@ private:
 
 public:
 
-	inline Profesor(std::string usuario="usuario", std::string fichero="prueba.bin", int rol=1)
+	inline Profesor(std::string usuario="usuario", std::string fichero="prueba.bin", int rol=2)
 	{
 		usuario_=usuario;
 		rol_=rol;
@@ -22,4 +22,6 @@ public:
 	};
 
 	int login(std::string usuario, std::string contrasena);
+
+	inline getRol(){return rol_;};
 };
