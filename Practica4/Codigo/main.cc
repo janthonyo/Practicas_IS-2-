@@ -18,20 +18,50 @@ int opcion;
 
 	while(acceso==0)
 	{
+		cout<<"Acceso al sistema"<<std::endl<<std::endl;
+		cout<<"¿Desea registrarse en el sistema o tiene cuenta?"<<std::endl<<std::endl;
 
-		Profesor p;
-		string user, key;
+		cout<<"\t1. Registrarme en el sistema."<<std::endl;
+		cout<<"\t2. Tengo cuenta y quiero acceder."<<std::endl<<std::endl;
 
-		cout << "Usuario: ";
-		cin >> user;
+		cout<<"Opcion: ";
+		cin>>opcion;
 
-		system("clear");
+		if(opcion==1) 
+		{
+			system("clear");
+			c.register_ayt();
+		}
 
-		cout << "Contraseña: ";
-		cin >> key;
-		system("clear");
+		else if(opcion==2)
+		{
+			system("clear");			
+			while(acceso==0)
+			{
+				string user, key;
 
-		acceso=c.login(user, key);
+				cout << "Usuario: ";
+				cin >> user;
+
+				system("clear");
+
+				cout << "Contraseña: ";
+				cin >> key;
+				system("clear");
+
+				acceso=c.login(user, key);
+			}
+		}
+
+		else
+		{
+			system("clear");
+			cout<<"La opcion seleccionada ("<<opcion<<") no existe"<<endl;
+			cout<<"Por favor, espere para introducir otra opcion a continuacion"<<endl;
+			sleep(4);
+			system("clear");
+			
+		}
 	}
 
 	do 
