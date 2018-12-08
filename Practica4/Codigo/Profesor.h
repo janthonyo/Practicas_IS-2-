@@ -23,5 +23,16 @@ public:
 
 	int login(std::string usuario, std::string contrasena);
 
-	inline getRol(){return rol_;};
+	inline int getRol(){return rol_;};
+	inline void setRol(int rol){rol_=rol;};
+	inline std::string getUsuario(){return usuario_;};
+	inline void setUsuario(std::string usuario){usuario_=usuario;};
+
+	//bool guardarBD(); //Necesito la clase alumnos
+	//bool cargarBD();  //Necesito la clase alumnos
+
+	//bool guardarCSext();		//Manu
+	//bool cargarCSext();		//Manu
+
+	
 };
