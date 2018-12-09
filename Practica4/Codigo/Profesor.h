@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "alumno.h"
+#include <fstream>
+//#include "alumno.h"
 
 class Profesor
 {
@@ -31,7 +32,7 @@ public:
 
 
 
-	bool guardarBD(); //Necesito la clase alumnos
+	//bool guardarBD(); //Necesito la clase alumnos
 	//bool cargarBD();  //Necesito la clase alumnos
 
 	//bool guardarCSext();		//Manu

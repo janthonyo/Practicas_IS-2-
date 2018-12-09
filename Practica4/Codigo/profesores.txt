@@ -1,1 +1,1 @@
-i72,inventada,1
+user,12345,2
