@@ -25,16 +25,16 @@ Acorde con la prioridad asignada a cada una de las historias de usuario anterior
 
 Funcion|Tiempo Estimado(h)
 :--:|:--:
-Log In|10h
-Introducir Alumno|4h
-Modificar Alumno|4h
-Eliminar Alumno|4h
-Buscar Alumno|8h
-Mostrar Alumno|4h
-Guardar Base de Datos|6h
-Cargar Base de Datos|6h
-Guardar Copia de Seguridad Externa|10h
-Cargar Copia de Seguridad Externa|10h
+Log In|6h
+Introducir Alumno|2h
+Modificar Alumno|2h
+Eliminar Alumno|2h
+Buscar Alumno|4h
+Mostrar Alumno|2h
+Guardar Base de Datos|3h
+Cargar Base de Datos|3h
+Guardar Copia de Seguridad Externa|4h
+Cargar Copia de Seguridad Externa|4h
 
 
 
