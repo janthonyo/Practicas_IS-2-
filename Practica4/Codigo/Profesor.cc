@@ -15,10 +15,13 @@ int Profesor::login(std::string usuario, std::string contrasena)
 	int rol_file;
 	int encontrado=0;
 
-	//Estructura del fichero: usuario, contraseña, rol.
+	//Creamos las variables donde posteriormente guardaremos los datos del fichero profesores.txt
+
 
 	std::ifstream fichero("profesores.txt");
+	//Abre el fichero profesores.txt para lectura.
 
+	//Estructura del fichero: usuario, contraseña, rol.
 	while((fichero.getline(aux, 50, ','))&&(encontrado==0))
 	{
 		user_file=aux;
@@ -33,6 +36,10 @@ int Profesor::login(std::string usuario, std::string contrasena)
 			rol_=rol_file;
 			encontrado=1;
 		}
+
+		//Si los datos correspondientes al usuario y la contraseña del fichero son iguales que los
+		//datos introcudidos por el usuario, se le asigna a la case profesor el nombre del usuario
+		//y el rol que tiene asignado (ayudante o coordinador).
 	}
 
 	fichero.close();
@@ -43,8 +50,12 @@ int Profesor::login(std::string usuario, std::string contrasena)
 		return 0;
 	}
 
+	//Si el usuario no ha sido encontrado, el programa mostraria un mensaje y se volverian a pedir los datos 
+
 	if(encontrado==1) return rol_;
 
+	//Si el profesor ha sido encontrado, el sistema devuelve el rol de este para mostrarle las funciones a las
+	//que tiene acceso.
 
 }
 
@@ -53,6 +64,27 @@ void Profesor::register_ayt()
 	std::string usuario;
 	std::string contra;
 	std::string verified_contra;
+	char datos [50];
+
+	std::ofstream aux("auxiliar.txt");
+	std::ifstream file("profesores.txt");
+
+	while(file.getline(datos, 50, ','))
+	{
+		aux<<datos<<",";
+		file.getline(datos, 50, ',');
+		aux<<datos<<",";
+		file.getline(datos, 50, ',');
+		aux<<datos<<",";
+		file.getline(datos, 50, '\n');
+
+	}
+
+	file.close();
+	remove("profesores.txt");
+	//Guardamos los datos en otro fichero auxiliar y borramos el fichero profesores para mantener los datos (TAMPOCO LOS GUARDA).
+
+	//Creamos las variables que necesitaremos para el registro de un nuevo usuario.
 
 	std::cout<<"---------------------------------------------------------------"<<std::endl<<std::endl;
 	std::cout<<"Registrar profesor"<<std::endl<<std::endl;
@@ -73,15 +105,25 @@ void Profesor::register_ayt()
 		std::cout<<std::endl<<"Verifica la contraseña: ";
 		std::cin>>verified_contra;
 
+		//El programa pide al usuario que introduzca el usuario que usara y una contraseña que tendra que validar.
+
 		if(contra==verified_contra)
 		{
-			std::ofstream file("profesores.txt");
-			file << usuario << "," << contra << "," <<"2\n";
-			file.close();
+			aux << usuario << "," << contra << "," <<"2\n";
+			aux.close();
+			rename("auxiliar.txt", "profesores.txt");
 			system("clear");
 			std::cout<<"Registro completado con éxito"<<std::endl;
-			sleep(4);
+			sleep(3);
 			system("clear");
+
+			//Si la contraseña esta correctamente verificada, los datos del profesor son guardados en el fichero de
+			//profesores para su posterior acceso al sistema y se le asigna al nuevo profesor el rol de 'Ayudante'.
+
+			//Esta funcion tiene un fallo bastante importante y es que cada vez que un nuevo profesor es añadido, SON
+			//BORRADOS todos aquellos que ya estaban. El problema esta al definir el modo de apertura del fichero de
+			//manera que no se puede abrir como ios::app para que introduzca los nuevos datos sin borrar los antiguos.
+
 		}
 
 		else
@@ -89,13 +131,15 @@ void Profesor::register_ayt()
 			system("clear");
 			std::cout<<std::endl<<std::endl<<"La verificacion de la contraseña no es correcta."<<std::endl;
 			std::cout<<"Por favor introduzca de nuevo los datos"<<std::endl<<std::endl;
+
+			//Si la contraseña no es correcta, el programa mostrara un mensaje y pedira los datos de nuevo.
 		}
 	}while(contra!=verified_contra);
 }
 
-bool Profesor::guardarBD()
+/*bool Profesor::guardarBD()
 {
 
 
 
-}
+}*/

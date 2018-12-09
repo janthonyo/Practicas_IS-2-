@@ -129,7 +129,7 @@ int opcion;
 						system("clear");
 						cout<<"Realizando copia..."<<endl;
 						
-						
+						/*
 						bool res=c.guardarBD();
 
 						if(res==true)
@@ -140,7 +140,7 @@ int opcion;
 						}
 
 						else cout<<"Hubo un error al realizar la copia.";
-
+						*/
 					}
 
 					else if(opc==2) 
