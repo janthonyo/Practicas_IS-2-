@@ -6,7 +6,7 @@
 
 	#include "alumno.h"
 	#include <fstream> // cabecera que proviene de las clases de entrada/salida para trabajar con ficheros http://www.cplusplus.com/reference/fstream/
-	#include <string> // cabecera que introduce el tipo string y funciones para su tratamiento http://www.cplusplus.com/reference/string/ 
+	#include <string> // cabecera que introduce el tipo string y funciones para su tratamiento http://www.cplusplus.com/reference/string/
 	#include <list> // clase perteneciente a la stl (standard template library) http://www.cplusplus.com/reference/stl/
 	#include <cstdio> // C library to perform Input/Output operations http://www.cplusplus.com/reference/cstdio/
 	using namespace std;
@@ -15,7 +15,8 @@
 		private:
 			list <Alumno> alumnos_; // lista que contiene los alumnos de la clase de is
 			string nombreBD_; // variable que guarda el nombre de la base de datos que se quiere cargar
-		
+			int numero_alumnos_;
+
 		public:
 			// observadores y modificadores para la lista de alumnos
 			void setAlumnos();
