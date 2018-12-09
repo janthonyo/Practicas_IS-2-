@@ -5,6 +5,7 @@
 #include <string.h>
 #include <fstream>
 #include "Profesor.h"
+#include "alumno.h"
 
 int Profesor::login(std::string usuario, std::string contrasena)
 {
@@ -90,4 +91,11 @@ void Profesor::register_ayt()
 			std::cout<<"Por favor introduzca de nuevo los datos"<<std::endl<<std::endl;
 		}
 	}while(contra!=verified_contra);
+}
+
+bool Profesor::guardarBD()
+{
+
+
+
 }
