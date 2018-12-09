@@ -107,7 +107,58 @@ int opcion;
 			break;
 
 			case 5:
+			{
 				system("clear");
+				int opc=0;
+
+				do{
+					/*
+
+					std::cout<<"Ultima copia de seguridad realizada: "<<fecha<<std::endl<<std::endl;
+					*/
+					cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<endl<<endl;
+
+					cout<<"\t1. Si"<<endl;
+					cout<<"\t2. No"<<endl;
+
+					cout<<std::endl<<"Opcion: ";
+					cin>>opc;
+
+					if(opc==1)
+					{
+						system("clear");
+						cout<<"Realizando copia..."<<endl;
+						
+						
+						bool res=c.guardarBD();
+
+						if(res==true)
+						{
+							system("clear");
+							cout<<"Copia realizada con exito.";
+							opc=2;
+						}
+
+						else cout<<"Hubo un error al realizar la copia.";
+
+					}
+
+					else if(opc==2) 
+					{
+						system("clear");
+						cout<<"Volviendo al menu..."<<endl;
+						sleep(2);
+						system("clear");
+					}
+					else
+					{
+						system("clear");
+						cout<<"Opcion no valida."<<endl<<endl;
+					}
+					
+				}while(opc!=2);
+			}
+
 			break;
 
 			case 6:
