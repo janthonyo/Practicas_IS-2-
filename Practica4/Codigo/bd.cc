@@ -10,10 +10,10 @@ BD::BD(string nombre) {
 } 
 
 void BD::setAlumnos() {
-	string dni, nombre, apellidos, fecha_nacimiento, telefono, email, domicilio, curso, nota, equipo, lider;
+	char dni[50], nombre[50], apellidos[50], fecha_nacimiento[50], telefono[50], email[50], domicilio[50], curso[50], nota[50], equipo[50], lider[50];
 	alumnos_.clear(); // clear (list) elimina el contenido de una lista
 
-	ifstream inputFile(nombreBD_); // abre un fichero y lo asocia al flujo de entrada
+	ifstream inputFile(nombreBD_.c_str()); // abre un fichero y lo asocia al flujo de entrada
 
 	if (!inputFile.is_open()) { // si is_open devuelve false, se muestra un mensaje de error y finaliza el programa
 		cout << "Error al abrir el fichero.\n";
@@ -21,22 +21,22 @@ void BD::setAlumnos() {
 	}
 
 	// con fichero_entrada.getline() se guarda lo leido en la variable
-	while(getline(inputFile, dni, ',')) { // getline devuelve false si ha acabado el fichero
-		getline(inputFile, nombre, ',');
-		getline(inputFile, apellidos, ',');
-		getline(inputFile, fecha_nacimiento, ',');
-		getline(inputFile, telefono, ',');
-		getline(inputFile, email, ',');
-		getline(inputFile, domicilio, ',');
-		getline(inputFile, curso, ',');
-		getline(inputFile, nota, ',');
-		getline(inputFile, equipo, ',');
-		getline(inputFile, lider, '\n');
+	while(inputFile.getline(dni, 50, ',')) { // getline devuelve false si ha acabado el fichero
+		inputFile.getline(nombre, 50, ',');
+		inputFile.getline(apellidos, 50, ',');
+		inputFile.getline(fecha_nacimiento, 50, ',');
+		inputFile.getline(telefono, 50, ',');
+		inputFile.getline(email, 50, ',');
+		inputFile.getline(domicilio, 50, ',');
+		inputFile.getline(curso, 50, ',');
+		inputFile.getline(nota, 50, ',');
+		inputFile.getline(equipo, 50, ',');
+		inputFile.getline(lider, 50, '\n');
 
 		// se guardan los valores leidos en el objeto alumno
 		// con stoi() se convierten los string a int
 
-		Alumno alumno(dni, nombre, apellidos, fecha_nacimiento, stoi(telefono), email, domicilio, stoi(curso), stoi(nota), stoi(equipo), lider);
+		Alumno alumno(dni, nombre, apellidos, fecha_nacimiento, atoi(telefono), email, domicilio, atoi(curso), atoi(nota), atoi(equipo), lider);
 
 		// push_back añade el elemento recibido al final de la lista
 		alumnos_.push_back(alumno);
@@ -49,7 +49,7 @@ void BD::setAlumnos() {
 
 bool BD::escribeBD() {
 	list <Alumno> :: iterator it; // creamos el iterador para recorrer la lista de Alumnos
-	ofstream f(nombreBD_); // abre el fichero y lo asocia al flujo de salida
+	ofstream f(nombreBD_.c_str()); // abre el fichero y lo asocia al flujo de salida
 
 	// is_open() devuelve true si el fichero se ha abierto y se ha asociado al flujo de entrada
 	if (!f.is_open()) { return false; }

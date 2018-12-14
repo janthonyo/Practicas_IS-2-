@@ -12,15 +12,15 @@ private:
 	std::string usuario_;
 	int rol_;	//Asignaremos un 1 si es coordinador.
 				//				 2 si es ayudante.
-	std::string fichero_;
+	BD profesor_;
 
 public:
 
-	inline Profesor(std::string usuario="usuario", std::string fichero="prueba.bin", int rol=2)
+	inline Profesor(BD c, std::string usuario="usuario", int rol=2) : profesor_(c)
 	{
 		usuario_=usuario;
 		rol_=rol;
-		fichero_=fichero;
+		
 	};
 
 	int login(std::string usuario, std::string contrasena); //Hecho

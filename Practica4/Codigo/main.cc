@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 
-Profesor c;
+Profesor c("defecto.txt");
 system("clear");
 
 int acceso=0;
@@ -108,8 +108,78 @@ int opcion;
 
 			case 5:
 			{
-				system("clear");
-				c.guardarBD();
+					int opc=0;
+	
+	do{
+
+	std::ifstream date("date.txt");
+
+	std::cout<<"Utima Copia de Seguridad Realizada: ";
+
+	if(!date.is_open()) std::cout<<"---"<<std::endl;
+	else
+	{
+		char aux[20];
+		date.getline(aux, 20);
+		std::cout<<aux<<std::endl;
+
+	}
+
+	date.close();
+		
+		std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+		std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
+
+		std::cout<<"\t1. Si"<<std::endl;
+		std::cout<<"\t2. No"<<std::endl;
+
+		std::cout<<std::endl<<"Opcion: ";
+		std::cin>>opc;
+
+		if(opc==1)
+		{
+			system("clear");
+			std::cout<<"Realizando copia..."<<std::endl;
+			sleep(1);
+
+			std::ifstream date("date.txt");
+			char aux[20];
+			
+			system("date +%d-%m-%y-%H%M > date.txt");
+			date.getline(aux, 20);
+
+			system("clear");
+			/*
+			if(escribeBD()==true)	
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			*/
+			opc=2;
+		}
+
+		else if(opc==2) 
+		{
+			system("clear");
+			std::cout<<"Volviendo al menu..."<<std::endl;
+			sleep(2);
+			system("clear");	//Cambios
+			
+		}
+		else
+		{
+			system("clear");
+			std::cout<<"Opcion no valida."<<std::endl<<std::endl;
+			std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+		}
+		
+	}while(opc!=2);
+
+				
 
 			}
 

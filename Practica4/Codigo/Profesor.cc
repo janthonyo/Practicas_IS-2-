@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Profesor.h"
 #include "alumno.h"
+#include "bd.h"
 
 int Profesor::login(std::string usuario, std::string contrasena)
 {
@@ -159,6 +160,7 @@ bool Profesor::guardarBD()
 
 	date.close();
 		
+		std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
 		std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
 
 		std::cout<<"\t1. Si"<<std::endl;
@@ -171,8 +173,24 @@ bool Profesor::guardarBD()
 		{
 			system("clear");
 			std::cout<<"Realizando copia..."<<std::endl;
-			opc=2;
+			sleep(1);
 
+			std::ifstream date("date.txt");
+			char aux[20];
+			
+			system("date +%d-%m-%y-%H%M > date.txt");
+			date.getline(aux, 20);
+
+			system("clear");
+
+			if(escribeBD(aux)==true)	
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		else if(opc==2) 
@@ -180,20 +198,16 @@ bool Profesor::guardarBD()
 			system("clear");
 			std::cout<<"Volviendo al menu..."<<std::endl;
 			sleep(2);
-			system("clear");
+			system("clear");	//Cambios
+			return false;
 		}
 		else
 		{
 			system("clear");
 			std::cout<<"Opcion no valida."<<std::endl<<std::endl;
+			std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
 		}
 		
 	}while(opc!=2);
-
-	sleep(3);
-	return true;
-
-
-
 
 }

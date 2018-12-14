@@ -9,6 +9,7 @@
 	#include <string> // cabecera que introduce el tipo string y funciones para su tratamiento http://www.cplusplus.com/reference/string/ 
 	#include <list> // clase perteneciente a la stl (standard template library) http://www.cplusplus.com/reference/stl/
 	#include <cstdio> // C library to perform Input/Output operations http://www.cplusplus.com/reference/cstdio/
+	
 	using namespace std;
 
 	class BD {
