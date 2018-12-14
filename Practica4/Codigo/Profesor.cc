@@ -74,9 +74,9 @@ void Profesor::register_ayt()
 		aux<<datos<<",";
 		file.getline(datos, 50, ',');
 		aux<<datos<<",";
-		file.getline(datos, 50, ',');
-		aux<<datos<<",";
-		file.getline(datos, 50, '\n');
+		file.getline(datos, 50);
+		aux<<datos<<"\n";
+		
 
 	}
 
@@ -137,9 +137,63 @@ void Profesor::register_ayt()
 	}while(contra!=verified_contra);
 }
 
-/*bool Profesor::guardarBD()
+bool Profesor::guardarBD()
 {
 
+	int opc=0;
+	
+	do{
+
+	std::ifstream date("date.txt");
+
+	std::cout<<"Utima Copia de Seguridad Realizada: ";
+
+	if(!date.is_open()) std::cout<<"---"<<std::endl;
+	else
+	{
+		char aux[20];
+		date.getline(aux, 20);
+		std::cout<<aux<<std::endl;
+
+	}
+
+	date.close();
+		
+		std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
+
+		std::cout<<"\t1. Si"<<std::endl;
+		std::cout<<"\t2. No"<<std::endl;
+
+		std::cout<<std::endl<<"Opcion: ";
+		std::cin>>opc;
+
+		if(opc==1)
+		{
+			system("clear");
+			std::cout<<"Realizando copia..."<<std::endl;
+			opc=2;
+
+		}
+
+		else if(opc==2) 
+		{
+			system("clear");
+			std::cout<<"Volviendo al menu..."<<std::endl;
+			sleep(2);
+			system("clear");
+		}
+		else
+		{
+			system("clear");
+			std::cout<<"Opcion no valida."<<std::endl<<std::endl;
+		}
+		
+	}while(opc!=2);
+
+	sleep(3);
+	return true;
 
 
-}*/
+
+
+}
