@@ -75,6 +75,7 @@ int opcion;
 	cin>>nombreBd;
 
 	BD d(nombreBd);
+	system("clear");
 
 	do 
 	{
