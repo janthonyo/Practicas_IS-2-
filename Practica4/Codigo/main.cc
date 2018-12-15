@@ -17,6 +17,9 @@ system("clear");
 
 int acceso=0;
 int opcion;
+BD myBD;
+int opcionBusqueda=0;
+
 
 	while(acceso==0)
 	{
@@ -99,10 +102,114 @@ int opcion;
 		cout<<"Opcion: ";
 		cin>>opcion;
 
+
 		switch(opcion)
 		{
 			case 1:
+			// COMPRUEBA NºALUMNOS < 150 ···
+								if(myBD.getNumeroAlumnos()==150) {
+									cout << "\n\tError\n";
+									cout <<  "\n\tNumero maximo de la base de datos (" << myBD.getNumeroAlumnos() << ") completado\n";
+									cout <<"\tPulse 1 para volver al menú";
+									cin.ignore();
+									cin.get();
+									system("clear");
+									break;
+								} 
 
+								// 
+								cout << "\tNUMERO DE ALUMNOS: " << myBD.getNumeroAlumnos() << RESET;
+								cout<<"\n";
+								
+											
+								// PIDE DATOS OBLIGATORIOS ···
+								datosAlumno datos;
+								inicializardatos(datos);
+								cout  << "\tIntroduzca los datos obligatorios del nuevo alumno: "<<endl;
+
+								cout << "\tDNI : " << ;
+								cin.ignore();
+								cin.getline(datos.dni, 10, '\n');
+								cout << "\tNombre : " << endl;
+								cin.getline(datos.nombre, 30, '\n');
+								cout << "\tApellidos : " << endl;
+								cout << "\tFecha de nacimiento : " << endl;
+								cin.getline(datos.fecha_nacimiento, 10, '\n');
+								cout << "\tTelefono : " << endl;
+								cin >> datos.telefono;
+								cout << "\tEmail corporativo : " << endl;
+								cin.ignore();
+								cin.getline(datos.email_corporativo, 30, '\n');
+								cout << "\tDomicilio : " <<endl ;
+								cin.getline(datos.domicilio, 30, '\n');
+								cout << "\tCurso : " << endl;
+								cin >> datos.curso;
+									 
+								if( strlen(datos.nombre)==0 || strlen(datos.dni)==0 || strlen(datos.apellidos)==0 || strlen(datos.fecha_nacimiento)==0 || strlen(datos.email_corporativo)==0 || strlen(datos.domicilio)==0) {
+								cout << BOLD_RED << "\n\tERROR" << endl;
+									cout << "\n\tFaltan por introducir parametros" << endl;
+									cout << "\n\tPulse 1 para volver al menú";
+									cin.ignore();
+									cin.get();
+									system("clear");
+									break;
+
+								Alumno aux(datos); // Constructor con estructura
+								
+								cout << endl << "\t***" << endl << endl;
+								// COMPRUEBA QUE EL ALUMNO NO HA SIDO INTRODUCIDO ANTERIORMENTE ···
+								list <Alumno> alumnosencontrados;
+								bool encontrado;
+
+
+								cout << "\tComprobando que el alumno no se haya dado de alta" << endl;
+								cout << "\t¿Como desea buscar al alumno?" << endl;
+								cout << "\t\t1. DNI\n\t\t2. Apellidos\n\n";
+								cout << "\t¿Como desea buscar? : " <<endl;
+								cin >> opcionBusqueda;
+								if(opcionBusqueda==1) {
+									encontrado=myBD.buscarAlumnoDNI(alumnosencontrados, aux);
+								} else if (opcBusqueda == 2) {
+									encontrado=(myBD.buscarAlumnoApellido(alumnosencontrados, aux) and myBD.buscarAlumnoDNI(alumnosencontrados, aux));
+								} else {
+									cout "\n\tError" << endl;
+									cout << "\n\tOpcion no de busqueda no aceptada" << endl;
+									cout << "\n\tPulse 1 para volver al menú";<<endl;
+									cin.ignore();
+									cin.get();
+									system("clear");
+									break;
+								}
+								if(encontrado==true) {	// ALUMNO YA INTRODUCIDO
+									cout <<"\n\tError" << endl;
+									cout <<"\n\tEl alumno introducido se encuentra en la base de datos." << endl;
+									cout << "\n\tPulse 1 para volver al menú";
+									cin.ignore();
+									cin.get();
+									system("clear");
+									break;
+								}
+								// DATOS Opcionales
+								cout << "\t¿Quiere introducir los datos opcionales del nuevo alumno?" << endl;
+								cout << "\tDatos opcionales:" << endl;
+								cout << "\t\tNota\n\t\tLider\n\t\tEquipo\n";
+								cout << "\tPulse 0 si quiere introducir los datos opcionales: " <<endl;	
+
+								int datosOpc;
+								cin >> datosOpc;
+
+								if(datosOpc == 1) {
+									system("clear");
+									cout << "\tINTRODUZCA LOS DATOS ADICIONALES DEL NUEVO ALUMNO"<< endl;
+									cout <<"\tNota : " << endl;
+									cin >> datos.nota;
+									cout << "\tEquipo : " << endl;
+									cin >> datos.equipo;
+									cout << "\tLider (1: Si; 0: No): " << endl;
+									cin >> datos.lider;
+
+
+}
 				system("clear");
 
 			break;
