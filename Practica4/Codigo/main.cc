@@ -4,13 +4,15 @@
 #include <unistd.h>
 #include <string.h>
 #include "Profesor.h"
+#include "bd.h"
 
 using namespace std;
 
 int main()
 {
 
-Profesor c("defecto.txt");
+Profesor c;
+
 system("clear");
 
 int acceso=0;
@@ -64,19 +66,29 @@ int opcion;
 		}
 	}
 
+	system("clear");
+
+	std::cout<<"Introduzca el nombre de la base de datos a usar."<<std::endl;
+	std::cout<<"Si no existe la BD, se creara una con dicho nombre."<<std::endl<<std::endl;
+
+	std::string nombreBd;
+	cin>>nombreBd;
+
+	BD d(nombreBd);
+
 	do 
 	{
 		cout<<"----------------------------------------"<<endl<<endl;
 		cout<<"¿Que desea hacer?\n\n";
 		cout<<"\t1. Introducir Alumno\n";
 		cout<<"\t2. Modificar Alumno\n";
-		cout<<"\t3. Eliminar Alumno\n";
-		cout<<"\t4. Mostrar Alumno\n";
+		cout<<"\t3. Eliminar Alumno\n";	
+		cout<<"\t4. Mostrar Alumno\n";	
 
 		if(acceso==1)
 		{
-			cout<<"\t5. Guardar Base de Datos\n";
-			cout<<"\t6. Cargar Base de Datos\n";
+			cout<<"\t5. Guardar Base de Datos\n";	//Hecho
+			cout<<"\t6. Cargar Base de Datos\n";	
 			cout<<"\t7. Guardar Copia de seguridad externa\n";
 			cout<<"\t8. Cargar Copia de seguridad externa\n";
 		}
@@ -108,6 +120,7 @@ int opcion;
 
 			case 5:
 			{
+					system("clear");
 					int opc=0;
 	
 	do{
@@ -142,23 +155,30 @@ int opcion;
 			std::cout<<"Realizando copia..."<<std::endl;
 			sleep(1);
 
-			std::ifstream date("date.txt");
-			char aux[20];
-			
 			system("date +%d-%m-%y-%H%M > date.txt");
-			date.getline(aux, 20);
 
-			system("clear");
-			/*
-			if(escribeBD()==true)	
+			std::ifstream date("date.txt");
+			char aux[20], name_file[30]="CSBD_";
+
+			date.getline(aux, 20);
+			strcat(name_file, aux);
+			strcat(name_file, ".bin");
+			d.setNombreBD(name_file);
+
+			
+			if(d.pues no escribeBD()==true)	
 			{
-				return true;
+				std::cout<<"Copia realizada con exito.";
 			}
 			else
 			{
-				return false;
+				std::cout<<"Error al realizar la copia."<<std::endl;
+
 			}
-			*/
+			
+			
+			sleep(1);
+			system("clear");
 			opc=2;
 		}
 
@@ -187,6 +207,7 @@ int opcion;
 
 			case 6:
 				system("clear");
+				
 			break;
 
 			case 7:
