@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Profesor.h"
 #include "alumno.h"
+#include "bd.h"
 
 int Profesor::login(std::string usuario, std::string contrasena)
 {
@@ -74,9 +75,9 @@ void Profesor::register_ayt()
 		aux<<datos<<",";
 		file.getline(datos, 50, ',');
 		aux<<datos<<",";
-		file.getline(datos, 50, ',');
-		aux<<datos<<",";
-		file.getline(datos, 50, '\n');
+		file.getline(datos, 50);
+		aux<<datos<<"\n";
+		
 
 	}
 
@@ -137,9 +138,3 @@ void Profesor::register_ayt()
 	}while(contra!=verified_contra);
 }
 
-/*bool Profesor::guardarBD()
-{
-
-
-
-}*/

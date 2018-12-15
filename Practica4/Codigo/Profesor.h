@@ -12,25 +12,23 @@ private:
 	std::string usuario_;
 	int rol_;	//Asignaremos un 1 si es coordinador.
 				//				 2 si es ayudante.
-	std::string fichero_;
 
 public:
 
-	inline Profesor(std::string usuario="usuario", std::string fichero="prueba.bin", int rol=2)
+	inline Profesor(std::string usuario="usuario", int rol=2)
 	{
 		usuario_=usuario;
 		rol_=rol;
-		fichero_=fichero;
+		
 	};
 
-	int login(std::string usuario, std::string contrasena);
-	void register_ayt();
+	int login(std::string usuario, std::string contrasena); //Hecho
+	void register_ayt(); //Hecho
+
 	inline int getRol(){return rol_;};
 	inline void setRol(int rol){rol_=rol;};
 	inline std::string getUsuario(){return usuario_;};
 	inline void setUsuario(std::string usuario){usuario_=usuario;};
-
-
 
 	//bool guardarBD(); //Necesito la clase alumnos
 	//bool cargarBD();  //Necesito la clase alumnos

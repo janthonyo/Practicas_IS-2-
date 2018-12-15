@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "Profesor.h"
+#include "bd.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ int main()
 {
 
 Profesor c;
+
 system("clear");
 
 int acceso=0;
@@ -23,8 +25,8 @@ int opcion;
 
 		cout<<"\t1. Registrarme en el sistema."<<std::endl;
 		cout<<"\t2. Tengo cuenta y quiero acceder."<<std::endl<<std::endl;
-
 		cout<<"Opcion: ";
+
 		cin>>opcion;
 
 		if(opcion==1) 
@@ -64,19 +66,30 @@ int opcion;
 		}
 	}
 
+	system("clear");
+
+	std::cout<<"Introduzca el nombre de la base de datos a usar."<<std::endl;
+	std::cout<<"Si no existe la BD, se creara una con dicho nombre."<<std::endl<<std::endl;
+
+	std::string nombreBd;
+	cin>>nombreBd;
+
+	BD d(nombreBd);
+	system("clear");
+
 	do 
 	{
 		cout<<"----------------------------------------"<<endl<<endl;
 		cout<<"¿Que desea hacer?\n\n";
 		cout<<"\t1. Introducir Alumno\n";
 		cout<<"\t2. Modificar Alumno\n";
-		cout<<"\t3. Eliminar Alumno\n";
-		cout<<"\t4. Mostrar Alumno\n";
+		cout<<"\t3. Eliminar Alumno\n";	
+		cout<<"\t4. Mostrar Alumno\n";	
 
 		if(acceso==1)
 		{
-			cout<<"\t5. Guardar Base de Datos\n";
-			cout<<"\t6. Cargar Base de Datos\n";
+			cout<<"\t5. Guardar Base de Datos\n";	//Hecho
+			cout<<"\t6. Cargar Base de Datos\n";	
 			cout<<"\t7. Guardar Copia de seguridad externa\n";
 			cout<<"\t8. Cargar Copia de seguridad externa\n";
 		}
@@ -108,61 +121,94 @@ int opcion;
 
 			case 5:
 			{
-				system("clear");
-				int opc=0;
+					system("clear");
+					int opc=0;
+	
+	do{
 
-				do{
-					/*
+	std::ifstream date("date.txt");
 
-					std::cout<<"Ultima copia de seguridad realizada: "<<fecha<<std::endl<<std::endl;
-					*/
-					cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<endl<<endl;
+	std::cout<<"Utima Copia de Seguridad Realizada: ";
 
-					cout<<"\t1. Si"<<endl;
-					cout<<"\t2. No"<<endl;
+	if(!date.is_open()) std::cout<<"---"<<std::endl;
+	else
+	{
+		char aux[20];
+		date.getline(aux, 20);
+		std::cout<<aux<<std::endl;
 
-					cout<<std::endl<<"Opcion: ";
-					cin>>opc;
+	}
 
-					if(opc==1)
-					{
-						system("clear");
-						cout<<"Realizando copia..."<<endl;
-						
-						/*
-						bool res=c.guardarBD();
+	date.close();
+		
+		std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+		std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
 
-						if(res==true)
-						{
-							system("clear");
-							cout<<"Copia realizada con exito.";
-							opc=2;
-						}
+		std::cout<<"\t1. Si"<<std::endl;
+		std::cout<<"\t2. No"<<std::endl;
 
-						else cout<<"Hubo un error al realizar la copia.";
-						*/
-					}
+		std::cout<<std::endl<<"Opcion: ";
+		std::cin>>opc;
 
-					else if(opc==2) 
-					{
-						system("clear");
-						cout<<"Volviendo al menu..."<<endl;
-						sleep(2);
-						system("clear");
-					}
-					else
-					{
-						system("clear");
-						cout<<"Opcion no valida."<<endl<<endl;
-					}
-					
-				}while(opc!=2);
+		if(opc==1)
+		{
+			system("clear");
+			std::cout<<"Realizando copia..."<<std::endl;
+			sleep(1);
+
+			system("date +%d-%m-%y-%H%M > date.txt");
+
+			std::ifstream date("date.txt");
+			char aux[20], name_file[30]="CSBD_";
+
+			date.getline(aux, 20);
+			strcat(name_file, aux);
+			strcat(name_file, ".bin");
+			d.setNombreBD(name_file);
+
+			
+			if(d.pues no escribeBD()==true)	
+			{
+				std::cout<<"Copia realizada con exito.";
+			}
+			else
+			{
+				std::cout<<"Error al realizar la copia."<<std::endl;
+
+			}
+			
+			
+			sleep(1);
+			system("clear");
+			opc=2;
+		}
+
+		else if(opc==2) 
+		{
+			system("clear");
+			std::cout<<"Volviendo al menu..."<<std::endl;
+			sleep(2);
+			system("clear");	//Cambios
+			
+		}
+		else
+		{
+			system("clear");
+			std::cout<<"Opcion no valida."<<std::endl<<std::endl;
+			std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+		}
+		
+	}while(opc!=2);
+
+				
+
 			}
 
 			break;
 
 			case 6:
 				system("clear");
+				
 			break;
 
 			case 7:
