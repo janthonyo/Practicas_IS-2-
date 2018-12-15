@@ -166,7 +166,7 @@ int opcion;
 			d.setNombreBD(name_file);
 
 			
-			if(d.pues no escribeBD()==true)	
+			if(d.escribeBD()==true)	
 			{
 				std::cout<<"Copia realizada con exito.";
 			}
@@ -206,7 +206,20 @@ int opcion;
 			break;
 
 			case 6:
+			{
 				system("clear");
+
+				string name_file;
+				cout<<"Introduzca el nombre de la copia a cargar: "<<endl<<endl;
+				cout<<"Nombre: ";
+				cin>>name_file;
+				system("clear");
+
+				d.setNombreBD(name_file);
+
+				if(d.setAlumnos()==true)	cout<<"Fichero cargado con éxito."<<endl;
+				else	cout<<"Se ha producido un error al cargar los datos."<<endl;
+			}
 				
 			break;
 

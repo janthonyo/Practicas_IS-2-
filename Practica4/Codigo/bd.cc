@@ -9,7 +9,7 @@ BD::BD(string nombre) {
 	nombreBD_ = nombre;
 } 
 
-void BD::setAlumnos() {
+bool BD::setAlumnos() {
 	char dni[50], nombre[50], apellidos[50], fecha_nacimiento[50], telefono[50], email[50], domicilio[50], curso[50], nota[50], equipo[50], lider[50];
 	alumnos_.clear(); // clear (list) elimina el contenido de una lista
 
@@ -17,7 +17,7 @@ void BD::setAlumnos() {
 
 	if (!inputFile.is_open()) { // si is_open devuelve false, se muestra un mensaje de error y finaliza el programa
 		cout << "Error al abrir el fichero.\n";
-		exit(-1);
+		return false;
 	}
 
 	// con fichero_entrada.getline() se guarda lo leido en la variable
@@ -45,6 +45,7 @@ void BD::setAlumnos() {
 	// close() cierra el fichero
 	// open() se usa para abrir el fichero en caso de que ifstream no reciba el nombre del fichero
 	inputFile.close();
+	return true;
 }
 
 bool BD::escribeBD() {

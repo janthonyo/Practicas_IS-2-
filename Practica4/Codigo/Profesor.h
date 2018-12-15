@@ -30,8 +30,8 @@ public:
 	inline std::string getUsuario(){return usuario_;};
 	inline void setUsuario(std::string usuario){usuario_=usuario;};
 
-	//bool guardarBD(); //Necesito la clase alumnos
-	//bool cargarBD();  //Necesito la clase alumnos
+	//bool guardarBD(); //Hecha
+	//bool cargarBD();  //Hecha
 
 	//bool guardarCSext();		//Manu
 	//bool cargarCSext();		//Manu

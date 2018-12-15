@@ -21,7 +21,7 @@
 			BD(string nombre);
 
 			// observadores y modificadores para la lista de alumnos
-			void setAlumnos();
+			bool setAlumnos();
 			inline list <Alumno> getAlumnos() { return alumnos_; }
 
 			// observadores y modificadores para el nombre del fichero
