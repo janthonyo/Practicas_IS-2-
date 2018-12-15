@@ -6,6 +6,14 @@
 #include "alumno.h"
 
 bool introducirAlumno(Alumno newAlumno){
+
+  if(numero_alumnos_>150)
+  {
+    cout<<"Base de datos llena"<<endl;
+    return false;
+  }
+  else cout << "Numero Alumnos :: " << numero_alumnos_<< endl;
+
   string dni="";
   string nombre="";
   string apellidos="";
@@ -17,12 +25,6 @@ bool introducirAlumno(Alumno newAlumno){
   int nota="";
   string lider="";
   int equipo="";
-
-if(numero_alumnos_>150)
-  {
-    cout<<"Base de datos llena"<<endl;
-    return false;
-  }
 do {
   cout<<"Introduce DNI:"<<endl;
   cin>> dni;
