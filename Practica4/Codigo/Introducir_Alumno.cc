@@ -54,10 +54,17 @@ do {
   }
 } while(dni==""||nombre==""||apellidos=="");
 
-buscarAlumno(newAlumno);
+if(buscarAlumno(newAlumno)==false)
+{
+  alumnos_.push_back(newAlumno);
+numero_alumnos_++;
+}
+else
+{
+  
+}
 //Hablar con manu sobre la funcion buscar alumno//
 //Preguntar sobre el numero máximo de personas por grupo
 
-alumnos_.push_back(newAlumno);
-numero_alumnos_++;
+
 }
