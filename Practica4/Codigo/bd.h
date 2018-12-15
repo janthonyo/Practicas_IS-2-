@@ -18,9 +18,11 @@
 			int numero_alumnos_;
 
 		public:
+			BD(string nombre);
+
 			// observadores y modificadores para la lista de alumnos
 			void setAlumnos();
-			inline Alumno getAlumnos() { return alumnos_; }
+			inline list <Alumno> getAlumnos() { return alumnos_; }
 
 			// observadores y modificadores para el nombre del fichero
 			inline void setNombreBD(string nombre) { nombreBD_ = nombre; }
@@ -42,8 +44,14 @@
 
 			// bool escribeBD(string nombre)
 			// recibe el nombre del fichero de la base de datos
+			// escribe la lista de alumnos en el fichero de base de datos
 			// devuelve true si se ha podido escribir y false en caso contrario
-			bool escribeBD(string nombre);
+			bool escribeBD();
+
+			// bool addAlumno() 
+			// Recibe un alumno como parámetro y añade el alumno al final de la lista de alumnos y devuelve true. 
+			// Si ya existe en la lista un alumno con ese DNI el método no hace nada y devuelve false.
+			bool addAlumno(Alumno alumno);
 
 	};
 
