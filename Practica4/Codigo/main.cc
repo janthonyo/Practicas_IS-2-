@@ -108,6 +108,16 @@ int opcion;
 
 			case 2:
 				system("clear");
+				/*int opc=0;
+				cout<<"¿Como desea buscar al alumno para modificar?"<<endl<<endl;
+
+				cout<<"\t1. Por DNI."<<endl;
+				cout<<"\t2. Por Apellido."<<endl;
+
+				if(opc==1)
+
+				if(opc==2)
+				*/
 			break;
 
 			case 3:
@@ -120,86 +130,86 @@ int opcion;
 
 			case 5:
 			{
-					system("clear");
-					int opc=0;
+				system("clear");
+				int opc=0;
 	
-	do{
+				do{
 
-	std::ifstream date("date.txt");
+				std::ifstream date("date.txt");
 
-	std::cout<<"Utima Copia de Seguridad Realizada: ";
+				std::cout<<"Utima Copia de Seguridad Realizada: ";
 
-	if(!date.is_open()) std::cout<<"---"<<std::endl;
-	else
-	{
-		char aux[20];
-		date.getline(aux, 20);
-		std::cout<<aux<<std::endl;
+				if(!date.is_open()) std::cout<<"---"<<std::endl;
+				else
+				{
+					char aux[20];
+					date.getline(aux, 20);
+					std::cout<<aux<<std::endl;
 
-	}
+				}
 
-	date.close();
-		
-		std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
-		std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
+				date.close();
+					
+					std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+					std::cout<<"¿Quiere realizar el guardado de la base de datos actual?"<<std::endl<<std::endl;
 
-		std::cout<<"\t1. Si"<<std::endl;
-		std::cout<<"\t2. No"<<std::endl;
+					std::cout<<"\t1. Si"<<std::endl;
+					std::cout<<"\t2. No"<<std::endl;
 
-		std::cout<<std::endl<<"Opcion: ";
-		std::cin>>opc;
+					std::cout<<std::endl<<"Opcion: ";
+					std::cin>>opc;
 
-		if(opc==1)
-		{
-			system("clear");
-			std::cout<<"Realizando copia..."<<std::endl;
-			sleep(1);
+					if(opc==1)
+					{
+						system("clear");
+						std::cout<<"Realizando copia..."<<std::endl;
+						sleep(1);
 
-			system("date +%d-%m-%y-%H%M > date.txt");
+						system("date +%d-%m-%y-%H%M > date.txt");
 
-			std::ifstream date("date.txt");
-			char aux[20], name_file[30]="CSBD_";
+						std::ifstream date("date.txt");
+						char aux[20], name_file[30]="CSBD_";
 
-			date.getline(aux, 20);
-			strcat(name_file, aux);
-			strcat(name_file, ".bin");
-			d.setNombreBD(name_file);
+						date.getline(aux, 20);
+						strcat(name_file, aux);
+						strcat(name_file, ".bin");
+						d.setNombreBD(name_file);
 
-			
-			if(d.escribeBD()==true)	
-			{
-				std::cout<<"Copia realizada con exito.";
-			}
-			else
-			{
-				std::cout<<"Error al realizar la copia."<<std::endl;
+						
+						if(d.escribeBD()==true)	
+						{
+							std::cout<<"Copia realizada con exito.";
+						}
+						else
+						{
+							std::cout<<"Error al realizar la copia."<<std::endl;
 
-			}
-			
-			
-			sleep(1);
-			system("clear");
-			opc=2;
-		}
+						}
+						
+						
+						sleep(1);
+						system("clear");
+						opc=2;
+					}
 
-		else if(opc==2) 
-		{
-			system("clear");
-			std::cout<<"Volviendo al menu..."<<std::endl;
-			sleep(2);
-			system("clear");	//Cambios
-			
-		}
-		else
-		{
-			system("clear");
-			std::cout<<"Opcion no valida."<<std::endl<<std::endl;
-			std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
-		}
-		
-	}while(opc!=2);
+					else if(opc==2) 
+					{
+						system("clear");
+						std::cout<<"Volviendo al menu..."<<std::endl;
+						sleep(2);
+						system("clear");	//Cambios
+						
+					}
+					else
+					{
+						system("clear");
+						std::cout<<"Opcion no valida."<<std::endl<<std::endl;
+						std::cout<<std::endl<<"--------------------------------------------------------"<<std::endl;
+					}
+					
+				}while(opc!=2);
 
-				
+							
 
 			}
 

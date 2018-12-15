@@ -95,3 +95,5 @@ bool BD::addAlumno(Alumno alumno) {
 
 	return true;
 }
+
+//bool modificaAlumno
