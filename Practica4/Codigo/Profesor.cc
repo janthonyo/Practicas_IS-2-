@@ -8,6 +8,8 @@
 #include "alumno.h"
 #include "bd.h"
 
+using namespace std;
+
 int Profesor::login(std::string usuario, std::string contrasena)
 {
 	char aux[50];
@@ -19,7 +21,7 @@ int Profesor::login(std::string usuario, std::string contrasena)
 	//Creamos las variables donde posteriormente guardaremos los datos del fichero profesores.txt
 
 
-	std::ifstream fichero("profesores.txt");
+	std::ifstream fichero("profesores.bin",ios::in | ios::binary);
 	//Abre el fichero profesores.txt para lectura.
 
 	//Estructura del fichero: usuario, contraseña, rol.
