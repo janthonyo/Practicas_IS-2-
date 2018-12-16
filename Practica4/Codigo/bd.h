@@ -37,7 +37,7 @@
 			// recibe como parametro un objeto alumno y busca en la base de datos una coincidencia para modificarlo
 			// puede modificar uno o varios datos
 			// devuelve true si lo ha modificado y false en caso contrario
-			bool modificarAlumno(Alumno alumno);
+			bool modificarAlumno(string datos, int modo);
 
 			// Alumno buscarAlumno()
 			Alumno buscarAlumno();

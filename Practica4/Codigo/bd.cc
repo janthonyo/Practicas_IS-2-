@@ -96,4 +96,179 @@ bool BD::addAlumno(Alumno alumno) {
 	return true;
 }
 
-//bool modificaAlumno
+bool BD::modificarAlumno(string datos, int modo)
+{
+
+	list<Alumno>::iterator i;
+	string dni;
+	string nombre;
+	string apellidos;
+	string fechaNacimiento;
+	int telefono;
+	string email;
+	string domicilio;
+	int curso;
+	int nota;			 
+	int equipo;		 		//		0: No tiene
+	string lider;
+	int found=0;
+
+	if(modo==1)		//DNI
+	{
+		for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
+		{
+			if(i->getDni()==datos)
+			{
+				cout<<"Alumno encontrado."<<endl<<endl;
+				cout<<"Introduzca los nuevos datos. Para conservar los antiguos, introduzcalos nuevamente."<<endl<<endl;
+				cout<<"-------------------------------------------------------------"<<endl;
+				cout<<"DNI: ";
+				cin>>dni;
+				i->setDni(dni);
+				cout<<"Nombre: ";
+				cin>>nombre;
+				i->setNombre(nombre);
+				cout<<"Apellido: ";
+				cin>>apellidos;
+				i->setApellidos(apellidos);
+				cout<<"Fecha de nacimiento (introducir como: dd/mm/yy): ";
+				cin>>fechaNacimiento;
+				i->setFechaNacimiento(fechaNacimiento);
+				cout<<"Telefono: ";
+				cin>>telefono;
+				i->setTelefono(telefono);
+				cout<<"Email: ";
+				cin>>email;
+				i->setEmail(email);
+				cout<<"Domicilio: ";
+				cin>>domicilio;
+				i->setDomicilio(domicilio);
+				cout<<"Curso: ";
+				cin>>curso;
+				i->setCurso(curso);
+				cout<<"Nota: ";
+				cin>>nota;
+				i->setNota(nota);
+				cout<<"Equipo: ";
+				cin>>equipo;
+				i->setEquipo(equipo);
+				cout<<"¿Es lider? (Si/No): ";
+				cin>>lider;
+				found=1;
+				cout<<"-------------------------------------------------------------"<<endl;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	if(modo==2)		//Apellido
+	{
+		list<Alumno> aux;
+
+		for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
+		{
+			if(i->getApellidos()==datos) 
+			Alumno alumno(i->getDni(), i->getNombre(), i->getApellidos(), i->getFechaNacimiento(), i->getTelefono(), i->getEmail(), i->getDomicilio(), i->getCurso(), i->getNota(), i->getEquipo(), i->getLider());
+
+
+		}
+
+		//mostrarAlumnos(aux);
+
+		if(aux.size()==1)
+		{
+			cout<<"Introduzca los nuevos datos. Para conservar los antiguos, introduzcalos nuevamente."<<endl<<endl;
+				cout<<"-------------------------------------------------------------"<<endl;
+				cout<<"DNI: ";
+				cin>>dni;
+				i->setDni(dni);
+				cout<<"Nombre: ";
+				cin>>nombre;
+				i->setNombre(nombre);
+				cout<<"Apellido: ";
+				cin>>apellidos;
+				i->setApellidos(apellidos);
+				cout<<"Fecha de nacimiento (introducir como: dd/mm/yy): ";
+				cin>>fechaNacimiento;
+				i->setFechaNacimiento(fechaNacimiento);
+				cout<<"Telefono: ";
+				cin>>telefono;
+				i->setTelefono(telefono);
+				cout<<"Email: ";
+				cin>>email;
+				i->setEmail(email);
+				cout<<"Domicilio: ";
+				cin>>domicilio;
+				i->setDomicilio(domicilio);
+				cout<<"Curso: ";
+				cin>>curso;
+				i->setCurso(curso);
+				cout<<"Nota: ";
+				cin>>nota;
+				i->setNota(nota);
+				cout<<"Equipo: ";
+				cin>>equipo;
+				i->setEquipo(equipo);
+				cout<<"¿Es lider? (Si/No): ";
+				cin>>lider;
+				found=1;
+				cout<<"-------------------------------------------------------------"<<endl;
+				return true;
+		}
+		else if(aux.size()>=1)
+		{
+
+			cout<<"---------------------------------------------"<<endl;
+			cout<<"Se han encontrado varias coincidencias de apellidos."<<endl;
+			cout<<"Introduzca el DNI del alumno a eliminar."<<endl<<endl;
+			cin>>dni;
+			for(i=aux.begin(); i!=aux.end(); i++)
+			{
+				if((i->getDni()==dni)&&(i->getApellidos()==datos))
+				{
+					cout<<"Alumno encontrado."<<endl<<endl;
+					cout<<"Introduzca los nuevos datos. Para conservar los antiguos, introduzcalos nuevamente."<<endl<<endl;
+					cout<<"-------------------------------------------------------------"<<endl;
+					cout<<"DNI: ";
+					cin>>dni;
+					i->setDni(dni);
+					cout<<"Nombre: ";
+					cin>>nombre;
+					i->setNombre(nombre);
+					cout<<"Apellido: ";
+					cin>>apellidos;
+					i->setApellidos(apellidos);
+					cout<<"Fecha de nacimiento (introducir como: dd/mm/yy): ";
+					cin>>fechaNacimiento;
+					i->setFechaNacimiento(fechaNacimiento);
+					cout<<"Telefono: ";
+					cin>>telefono;
+					i->setTelefono(telefono);
+					cout<<"Email: ";
+					cin>>email;
+					i->setEmail(email);
+					cout<<"Domicilio: ";
+					cin>>domicilio;
+					i->setDomicilio(domicilio);
+					cout<<"Curso: ";
+					cin>>curso;
+					i->setCurso(curso);
+					cout<<"Nota: ";
+					cin>>nota;
+					i->setNota(nota);
+					cout<<"Equipo: ";
+					cin>>equipo;
+					i->setEquipo(equipo);
+					cout<<"¿Es lider? (Si/No): ";
+					cin>>lider;
+					found=1;
+					cout<<"-------------------------------------------------------------"<<endl;
+					return true;
+				}
+			}
+		}
+
+		else return false;
+	}
+}
