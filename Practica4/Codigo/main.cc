@@ -107,17 +107,57 @@ int opcion;
 			break;
 
 			case 2:
+			{
 				system("clear");
-				/*int opc=0;
+				int opc=0;
+				string searchDni, searchApellido;
 				cout<<"¿Como desea buscar al alumno para modificar?"<<endl<<endl;
 
 				cout<<"\t1. Por DNI."<<endl;
 				cout<<"\t2. Por Apellido."<<endl;
 
-				if(opc==1)
+				cout<<"Opcion: ";
+				cin>>opc;
 
-				if(opc==2)
-				*/
+				if(opc==1)
+				{
+					system("clear");
+					cout<<"Introduzca el DNI: ";
+					cin>>searchDni;
+					if(d.modificarAlumno(searchDni, opc)==true)
+					{
+						system("clear");
+						cout<<"Alumno modificado con éxito"<<endl;
+
+					}
+					else
+					{
+						system("clear");
+						cout<<"ERROR AL MODIFICAR ALUMNO."<<endl;	
+					}
+
+				}
+				else if(opc==2)
+				{
+					system("clear");
+					cout<<"Introduzca el apellido: ";
+					cin>>searchApellido;
+					if(d.modificarAlumno(searchDni, opc)==true)
+					{
+						system("clear");
+						cout<<"Alumno modificado con éxito"<<endl;
+
+					}
+					else
+					{
+						system("clear");
+						cout<<"ERROR AL MODIFICAR ALUMNO."<<endl;
+					}
+				}
+				else	cout<<"Opcion no valida."<<endl;
+
+			}	
+
 			break;
 
 			case 3:
