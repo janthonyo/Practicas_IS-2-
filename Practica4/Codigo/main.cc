@@ -89,8 +89,8 @@ int opcion;
 		{
 			cout<<"\t5. Guardar Base de Datos\n";	//Hecho
 			cout<<"\t6. Cargar Base de Datos\n";	
-			cout<<"\t7. Guardar Copia de seguridad externa\n";
-			cout<<"\t8. Cargar Copia de seguridad externa\n";
+			//cout<<"\t7. Guardar Copia de seguridad externa\n";
+			//cout<<"\t8. Cargar Copia de seguridad externa\n";
 		}
 		cout<<"\t0. Salir\n\n";
 		cout<<"----------------------------------------"<<endl<<endl;
@@ -101,8 +101,124 @@ int opcion;
 		switch(opcion)
 		{
 			case 1:
+			{
+				system("clear");
+
+				if(d.getNumeroAlumnos()==150) {
+					cout << "\n\tError\n";
+					cout <<  "\n\tNumero maximo de la base de datos (" << d.getNumeroAlumnos() << ") alcanzado\n";
+					cout <<"\tPulse intro para volver al menú";
+					cin.ignore();
+					cin.get();
+					system("clear");
+					break;
+				} 
+
+				cout << "\tNUMERO DE ALUMNOS: " << d.getNumeroAlumnos() << endl;
+				cout<<"\n";
+
+				
+				string dni;
+				string nombre;
+				string apellidos;
+				string fechaNacimiento;
+				int telefono;
+				string email;
+				string domicilio;
+				int curso;
+				int nota;			 
+				int equipo=0;		 		//		0: No tiene
+				string lider="";
+
+				cout  << "\tIntroduzca los datos obligatorios del nuevo alumno: "<<endl;
+
+				cout<<"\tDNI: ";
+				cin>>dni;
+
+				cout << "\tNombre: ";
+				cin.ignore();
+				cin>>nombre;
+
+				cout << "\tApellido (Solo el primero): ";
+				cin.ignore();
+				cin>>apellidos;
+
+				cout << "\tFecha de nacimiento : ";
+				cin.ignore();
+				cin>>fechaNacimiento;
+
+				cout << "\tTelefono : ";
+				cin.ignore();
+				cin>>telefono;
+
+				cout <<"\tEmail corporativo : ";
+				cin.ignore();
+				cin>>email;
+
+				cout << "\tDomicilio(Todo junto) : ";
+				cin.ignore();
+				cin >> domicilio;
+
+				cout << "\tCurso : ";
+				cin.ignore();
+				cin>>curso;
+
+				cout << "\tNota : ";
+				cin.ignore();
+				cin>>nota;
 
 				system("clear");
+
+				if( nombre=="" || dni=="" || apellidos=="" || fechaNacimiento=="" || telefono<0 || email==""|| domicilio==""||curso<0||nota<0||nota>10){
+					cout <<"\n\tERROR" << endl;
+					cout << "\n\tFaltan por introducir parametros" << endl;
+					cout << "\n\tPulse intro para volver al menú";
+					cin.ignore();
+					cin.get();
+					system("clear");
+					break;
+				}
+
+			
+				cout << "\tComprobando que el alumno no se haya dado de alta" << endl;
+				
+				if(d.buscarAlumnoDni(dni)==true) {	//El alumno ya se introdujo
+					cout<<endl<<"\n\tError" << endl;
+					cout <<"\n\tEl alumno introducido se encuentra en la base de datos." << endl;
+					cout << "\n\tPulse intro para volver al menú";
+					cin.ignore();
+					cin.get();
+					system("clear");
+					break;
+				}
+
+				else {cout<<endl<<"\tEl alumno no se encuentra en la base de datos."<<endl;}
+				// DATOS Opcionales
+				cout <<endl<< "\t¿Quiere introducir los datos opcionales del nuevo alumno?" << endl;
+				cout << "\tDatos opcionales:" << endl;
+				cout << "\t\tLider\n\t\tEquipo\n";
+				cout << "\tPulse 0 si quiere introducir los datos opcionales: " <<endl;	
+
+				int datosOpc;
+				cout<<endl<<endl<<"Opcion: ";
+				cin >> datosOpc;
+
+				system("clear");
+				if(datosOpc == 0) 
+				{
+					system("clear");
+					cout << "\tEquipo : ";
+					cin>>equipo;
+					cout << "\tLider (Si/No): ";
+					cin>>lider;
+				}
+
+				Alumno alumno(dni, nombre, apellidos, fechaNacimiento, telefono, email, domicilio, curso, nota, equipo, lider);
+
+				if(d.introducirAlumno(alumno)==true)	cout<<"Alumno añadido"<<endl;
+				else 		cout<<"Error al introducir el alumno."<<endl;
+
+			}
 
 			break;
 
@@ -161,11 +277,52 @@ int opcion;
 			break;
 
 			case 3:
+			{
+				string dni;
 				system("clear");
+				cout<<"Introduzca el Dni del alumno a borrar: ";
+				cin>>dni;
+
+				if(d.eliminarAlumno(dni)==true)
+				{
+					system("clear");
+					cout<<"Alumno eliminado."<<endl;
+				}
+
+				else
+				{
+					system("clear");
+					cout<<"El alumno no se encuentra en la Base de datos."<<endl;
+
+				}
+			}
 			break;
 
 			case 4:
+			{
 				system("clear");
+				int opc=0;
+				cout<<"¿Como desea mostrar a los alumnos?"<<endl<<endl;
+				cout<<"\t1. Mostrar todos."<<endl;
+				cout<<"\t2. Mostrar uno."<<endl<<endl;
+
+				cout<<"Opcion: ";
+				cin>>opc;
+
+				system("clear");
+
+				if(opc==1)	d.MostrarTodoslosAlumnos();
+				else if(opc==2)
+				{
+					string dni;
+					cout<<endl<<"----------------------------"<<endl;
+					cout<<"Introduzca el Dni del alumno en cuestion:";
+					cin>>dni;
+					d.MostrarUnAlumno(dni);
+				}
+				else	cout<<"Dicha opcion no existe."<<endl;
+
+			}
 			break;
 
 			case 5:

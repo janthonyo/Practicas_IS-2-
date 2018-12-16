@@ -16,7 +16,8 @@
 		private:
 			list <Alumno> alumnos_; // lista que contiene los alumnos de la clase de is
 			string nombreBD_; // variable que guarda el nombre de la base de datos que se quiere cargar
-		
+			int numero_alumnos_;
+
 		public:
 			BD(string nombre);
 
@@ -27,6 +28,8 @@
 			// observadores y modificadores para el nombre del fichero
 			inline void setNombreBD(string nombre) { nombreBD_ = nombre; }
 			inline string getNombreBD() { return nombreBD_; }
+
+			inline int getNumeroAlumnos(){return numero_alumnos_;}
 
 			// bool introducirAlumno(Alumno newAlumno)
 			// recibe como parametro un objeto alumno y lo introduce en la base de datos
@@ -51,8 +54,88 @@
 			// bool addAlumno() 
 			// Recibe un alumno como parámetro y añade el alumno al final de la lista de alumnos y devuelve true. 
 			// Si ya existe en la lista un alumno con ese DNI el método no hace nada y devuelve false.
-			bool addAlumno(Alumno alumno);
+			//bool addAlumno(Alumno alumno);
 
+			inline bool buscarAlumnoDni(string dni)
+			{
+				list <Alumno> :: iterator it;
+
+				for(it = alumnos_.begin(); it !=alumnos_.end();it++)
+				{
+					if(it->getDni() == dni) return true; 
+				}	
+				return false;
+			};
+
+			bool eliminarAlumno(string dni)
+			{
+				list <Alumno> :: iterator i;
+
+				for(i=alumnos_.begin(); i!=alumnos_.end(); i++) {
+					if(i->getDni()==dni) 
+					{
+						alumnos_.erase(i);
+						numero_alumnos_--;
+						return true;
+					}
+				}
+
+				return false;
+			};
+
+			inline void MostrarTodoslosAlumnos(){
+
+			list <Alumno> :: iterator i;
+
+			for(i=alumnos_.begin(); i!=alumnos_.end(); i++){
+				cout<<"-----------------------------------------------------"<<endl;
+				cout<<"DNI: "<<i->getDni()<<endl;
+				cout<<"Nombre: " <<i->getNombre()<<endl;
+				cout<<"Apellidos: " <<i->getApellidos()<<endl;
+				cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
+				cout<<"Telefono: " <<i->getTelefono()<<endl;
+				cout<<"Email: "<<i->getEmail()<<endl;
+				cout<<"Domicilio: " <<i->getDomicilio()<<endl;
+				cout<<"Curso: " <<i->getCurso()<<endl;
+				cout<<"Nota: " <<i->getNota()<<endl;
+				cout<<"Equipo: " <<i->getEquipo()<<endl;
+				cout<<"Lider: "<<i->getLider()<<endl;
+				cout<<"-----------------------------------------------------"<<endl;
+
+				}
+			};
+
+			inline void MostrarUnAlumno(string dni){
+
+				list <Alumno> :: iterator i;
+				int found=0;
+
+				for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
+				{
+
+					if(buscarAlumnoDni(dni)==true){
+						cout<<"-----------------------------------------------------"<<endl;
+						cout<<"DNI: "<<i->getDni()<<endl;
+						cout<<"Nombre: " <<i->getNombre()<<endl;
+						cout<<"Apellidos: " <<i->getApellidos()<<endl;
+						cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
+						cout<<"Telefono: " <<i->getTelefono()<<endl;
+						cout<<"Email: "<<i->getEmail()<<endl;
+						cout<<"Domicilio: " <<i->getDomicilio()<<endl;
+						cout<<"Curso: " <<i->getCurso()<<endl;
+						cout<<"Nota: " <<i->getNota()<<endl;
+						cout<<"Equipo: " <<i->getEquipo()<<endl;
+						cout<<"Lider: "<<i->getLider()<<endl;
+						found=1;
+						cout<<"-----------------------------------------------------"<<endl;
+					}
+				}
+				
+				if(found==0)	cout<<"Alumno no encontrado en la base de datos."<<endl;
+
+			};
 	};
+
+
 
 #endif

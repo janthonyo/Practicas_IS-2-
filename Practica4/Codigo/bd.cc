@@ -7,6 +7,7 @@
 
 BD::BD(string nombre) {
 	nombreBD_ = nombre;
+	numero_alumnos_=0;
 } 
 
 bool BD::setAlumnos() {
@@ -80,21 +81,18 @@ bool BD::escribeBD() {
 	return true;
 }
 
-bool BD::addAlumno(Alumno alumno) {
+bool BD::introducirAlumno(Alumno alumno) {
 
 	// creaomos un iterador con la lista de alumnos
 	// find busca dentro del iterador y devuelve el valor de la primera coincidencia
 	// si no encuentra nada devuelve la ultima posicion
-	list <Alumno> :: iterator it;
-
-	for (it = alumnos_.begin(); it != alumnos_.end(); it++) {
-		if (it->getDni() == alumno.getDni()) { return false; }
-	}
 
 	alumnos_.push_back(alumno);
+	numero_alumnos_++;
 
 	return true;
 }
+
 
 bool BD::modificarAlumno(string datos, int modo)
 {
@@ -271,4 +269,4 @@ bool BD::modificarAlumno(string datos, int modo)
 
 		else return false;
 	}
-}
+};

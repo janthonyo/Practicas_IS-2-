@@ -21,7 +21,7 @@ int Profesor::login(std::string usuario, std::string contrasena)
 	//Creamos las variables donde posteriormente guardaremos los datos del fichero profesores.txt
 
 
-	std::ifstream fichero("profesores.bin",ios::in | ios::binary);
+	std::ifstream fichero("profesores.txt");
 	//Abre el fichero profesores.txt para lectura.
 
 	//Estructura del fichero: usuario, contraseña, rol.
