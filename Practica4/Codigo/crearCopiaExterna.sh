@@ -4,8 +4,8 @@ pwd=`pwd`"/"
 dir="/tmp/copia_externa/"
 init=".git/"
 git="https://github.com/"
-bdBack=$1`date +%y-%m-%d_%H:%M`".txt"
-bd=$1".txt"
+bdBack=$1`date +%y-%m-%d_%H:%M`
+bd=$1
 
 if [ ! -d $dir ];then
 	echo "El directorio " $dir " no existe"
@@ -33,6 +33,8 @@ if [ ! -d $init ];then
 		return 0
 	fi
 fi
+
+echo $pwd$bd
 
 if [ -f $pwd$bd ]; then
 	# actualizando el repositorio local	

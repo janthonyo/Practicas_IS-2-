@@ -7,7 +7,7 @@ void crearCopiaExterna(string nombre) {
 
 bool cargarCopiaExterna(string nombre) {
 	string script = "bash cargarCopiaExterna.sh " + nombre;
-	string cat = "cat " + nombre + ".txt > /dev/null 2>&1";
+	string cat = "cat " + nombre + " > /dev/null 2>&1";
 
 	system(script.c_str());
 	if (system(cat.c_str()) == 0) return true;

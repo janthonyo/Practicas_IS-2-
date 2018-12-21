@@ -16,10 +16,8 @@ bool BD::setAlumnos() {
 
 	ifstream inputFile(nombreBD_.c_str()); // abre un fichero y lo asocia al flujo de entrada
 
-	if (!inputFile.is_open()) { // si is_open devuelve false, se muestra un mensaje de error y finaliza el programa
-		cout << "Error al abrir el fichero.\n";
-		return false;
-	}
+	// si is_open devuelve false, se muestra un mensaje de error y finaliza el programa
+	if (!inputFile.is_open()) { return false; }
 
 	// con fichero_entrada.getline() se guarda lo leido en la variable
 	while(inputFile.getline(dni, 50, ',')) { // getline devuelve false si ha acabado el fichero
@@ -92,6 +90,9 @@ bool BD::introducirAlumno(Alumno alumno) {
 
 	return true;
 }
+
+
+
 
 
 bool BD::modificarAlumno(string datos, int modo)
@@ -269,4 +270,87 @@ bool BD::modificarAlumno(string datos, int modo)
 
 		else return false;
 	}
+
+
 };
+
+bool BD::buscarAlumnoDni(string dni)
+{
+	list <Alumno> :: iterator it;
+
+	for(it = alumnos_.begin(); it !=alumnos_.end();it++)
+	{
+		if(it->getDni() == dni) return true; 
+	}	
+	return false;
+};
+
+
+bool BD::eliminarAlumno(string dni)
+{
+	list <Alumno> :: iterator i;
+
+	for(i=alumnos_.begin(); i!=alumnos_.end(); i++) {
+		if(i->getDni()==dni) 
+		{
+			alumnos_.erase(i);
+			numero_alumnos_--;
+			return true;
+		}
+	}
+
+	return false;
+};
+
+
+void BD::MostrarUnAlumno(string dni){
+
+list <Alumno> :: iterator i;
+int found=0;
+
+for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
+{
+
+	if(buscarAlumnoDni(dni)==true){
+		cout<<"-----------------------------------------------------"<<endl;
+		cout<<"DNI: "<<i->getDni()<<endl;
+		cout<<"Nombre: " <<i->getNombre()<<endl;
+		cout<<"Apellidos: " <<i->getApellidos()<<endl;
+		cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
+		cout<<"Telefono: " <<i->getTelefono()<<endl;
+		cout<<"Email: "<<i->getEmail()<<endl;
+		cout<<"Domicilio: " <<i->getDomicilio()<<endl;
+		cout<<"Curso: " <<i->getCurso()<<endl;
+		cout<<"Nota: " <<i->getNota()<<endl;
+		cout<<"Equipo: " <<i->getEquipo()<<endl;
+		cout<<"Lider: "<<i->getLider()<<endl;
+		found=1;
+		cout<<"-----------------------------------------------------"<<endl;
+	}
+}
+
+if(found==0)	cout<<"Alumno no encontrado en la base de datos."<<endl;
+
+};
+
+void BD::MostrarTodoslosAlumnos(){
+
+list <Alumno> :: iterator i;
+for(i=alumnos_.begin(); i!=alumnos_.end(); i++){
+	cout<<"-----------------------------------------------------"<<endl;
+	cout<<"DNI: "<<i->getDni()<<endl;
+	cout<<"Nombre: " <<i->getNombre()<<endl;
+	cout<<"Apellidos: " <<i->getApellidos()<<endl;
+	cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
+	cout<<"Telefono: " <<i->getTelefono()<<endl;
+	cout<<"Email: "<<i->getEmail()<<endl;
+	cout<<"Domicilio: " <<i->getDomicilio()<<endl;
+	cout<<"Curso: " <<i->getCurso()<<endl;
+	cout<<"Nota: " <<i->getNota()<<endl;
+	cout<<"Equipo: " <<i->getEquipo()<<endl;
+	cout<<"Lider: "<<i->getLider()<<endl;
+	cout<<"-----------------------------------------------------"<<endl;
+
+	}
+};
+

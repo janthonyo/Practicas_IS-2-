@@ -56,84 +56,13 @@
 			// Si ya existe en la lista un alumno con ese DNI el método no hace nada y devuelve false.
 			//bool addAlumno(Alumno alumno);
 
-			inline bool buscarAlumnoDni(string dni)
-			{
-				list <Alumno> :: iterator it;
+			bool buscarAlumnoDni(string dni);
 
-				for(it = alumnos_.begin(); it !=alumnos_.end();it++)
-				{
-					if(it->getDni() == dni) return true; 
-				}	
-				return false;
-			};
+			bool eliminarAlumno(string dni);
 
-			bool eliminarAlumno(string dni)
-			{
-				list <Alumno> :: iterator i;
+			void MostrarTodoslosAlumnos();
 
-				for(i=alumnos_.begin(); i!=alumnos_.end(); i++) {
-					if(i->getDni()==dni) 
-					{
-						alumnos_.erase(i);
-						numero_alumnos_--;
-						return true;
-					}
-				}
-
-				return false;
-			};
-
-			inline void MostrarTodoslosAlumnos(){
-
-			list <Alumno> :: iterator i;
-
-			for(i=alumnos_.begin(); i!=alumnos_.end(); i++){
-				cout<<"-----------------------------------------------------"<<endl;
-				cout<<"DNI: "<<i->getDni()<<endl;
-				cout<<"Nombre: " <<i->getNombre()<<endl;
-				cout<<"Apellidos: " <<i->getApellidos()<<endl;
-				cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
-				cout<<"Telefono: " <<i->getTelefono()<<endl;
-				cout<<"Email: "<<i->getEmail()<<endl;
-				cout<<"Domicilio: " <<i->getDomicilio()<<endl;
-				cout<<"Curso: " <<i->getCurso()<<endl;
-				cout<<"Nota: " <<i->getNota()<<endl;
-				cout<<"Equipo: " <<i->getEquipo()<<endl;
-				cout<<"Lider: "<<i->getLider()<<endl;
-				cout<<"-----------------------------------------------------"<<endl;
-
-				}
-			};
-
-			inline void MostrarUnAlumno(string dni){
-
-				list <Alumno> :: iterator i;
-				int found=0;
-
-				for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
-				{
-
-					if(buscarAlumnoDni(dni)==true){
-						cout<<"-----------------------------------------------------"<<endl;
-						cout<<"DNI: "<<i->getDni()<<endl;
-						cout<<"Nombre: " <<i->getNombre()<<endl;
-						cout<<"Apellidos: " <<i->getApellidos()<<endl;
-						cout<<"Fecha Nacimiento: " <<i->getFechaNacimiento()<<endl;
-						cout<<"Telefono: " <<i->getTelefono()<<endl;
-						cout<<"Email: "<<i->getEmail()<<endl;
-						cout<<"Domicilio: " <<i->getDomicilio()<<endl;
-						cout<<"Curso: " <<i->getCurso()<<endl;
-						cout<<"Nota: " <<i->getNota()<<endl;
-						cout<<"Equipo: " <<i->getEquipo()<<endl;
-						cout<<"Lider: "<<i->getLider()<<endl;
-						found=1;
-						cout<<"-----------------------------------------------------"<<endl;
-					}
-				}
-				
-				if(found==0)	cout<<"Alumno no encontrado en la base de datos."<<endl;
-
-			};
+			void MostrarUnAlumno(string dni);
 	};
 
 

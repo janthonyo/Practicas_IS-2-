@@ -4,7 +4,7 @@ pwd=`pwd`"/"
 dir="/tmp/copia_externa/"
 init=".git/"
 git="https://github.com/"
-bd=$1".txt"
+bd=$1
 
 if [ ! -d $dir ];then
 	echo "El directorio " $dir " no existe"

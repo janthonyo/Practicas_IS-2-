@@ -5,6 +5,7 @@
 #include <string.h>
 #include "Profesor.h"
 #include "bd.h"
+#include "copiaExterna.h"
 
 using namespace std;
 
@@ -75,6 +76,7 @@ int opcion;
 	cin>>nombreBd;
 
 	BD d(nombreBd);
+	d.setAlumnos();
 
 	do 
 	{
@@ -89,8 +91,8 @@ int opcion;
 		{
 			cout<<"\t5. Guardar Base de Datos\n";	//Hecho
 			cout<<"\t6. Cargar Base de Datos\n";	
-			//cout<<"\t7. Guardar Copia de seguridad externa\n";
-			//cout<<"\t8. Cargar Copia de seguridad externa\n";
+			cout<<"\t7. Guardar Copia de seguridad externa\n";
+			cout<<"\t8. Cargar Copia de seguridad externa\n";
 		}
 		cout<<"\t0. Salir\n\n";
 		cout<<"----------------------------------------"<<endl<<endl;
@@ -215,7 +217,11 @@ int opcion;
 
 				Alumno alumno(dni, nombre, apellidos, fechaNacimiento, telefono, email, domicilio, curso, nota, equipo, lider);
 
-				if(d.introducirAlumno(alumno)==true)	cout<<"Alumno añadido"<<endl;
+				if(d.introducirAlumno(alumno)==true)
+				{
+					if(d.escribeBD())	cout<<"Alumno añadido"<<endl;
+				}
+				
 				else 		cout<<"Error al introducir el alumno."<<endl;
 
 			}
@@ -244,6 +250,7 @@ int opcion;
 					{
 						system("clear");
 						cout<<"Alumno modificado con éxito"<<endl;
+						if(d.escribeBD())	cout<<"Exito"<<endl;
 
 					}
 					else
@@ -262,6 +269,7 @@ int opcion;
 					{
 						system("clear");
 						cout<<"Alumno modificado con éxito"<<endl;
+						d.escribeBD();
 
 					}
 					else
@@ -287,6 +295,7 @@ int opcion;
 				{
 					system("clear");
 					cout<<"Alumno eliminado."<<endl;
+					d.escribeBD();
 				}
 
 				else
@@ -358,6 +367,7 @@ int opcion;
 
 					if(opc==1)
 					{
+
 						system("clear");
 						std::cout<<"Realizando copia..."<<std::endl;
 						sleep(1);
@@ -365,11 +375,13 @@ int opcion;
 						system("date +%d-%m-%y-%H%M > date.txt");
 
 						std::ifstream date("date.txt");
+						std::string nombre_BD;
 						char aux[20], name_file[30]="CSBD_";
 
 						date.getline(aux, 20);
 						strcat(name_file, aux);
 						strcat(name_file, ".bin");
+						nombre_BD=d.getNombreBD();
 						d.setNombreBD(name_file);
 
 						
@@ -383,7 +395,7 @@ int opcion;
 
 						}
 						
-						
+						d.setNombreBD(nombre_BD);
 						sleep(1);
 						system("clear");
 						opc=2;
@@ -431,11 +443,57 @@ int opcion;
 			break;
 
 			case 7:
+			{
+				string opc;
 				system("clear");
+				cout<<"¿Se hará una copia de la Base de datos actual? (Por defecto: s/n): ";
+
+				cin>>opc;
+				system("clear");
+
+				if(opc!="s")
+				{
+					cout<<"Introduzca el nombre de la base de datos: ";
+					cin>>opc;
+					crearCopiaExterna(opc);
+					break;
+				}
+
+				opc=d.getNombreBD();
+				crearCopiaExterna(opc);
+			}
 			break;
 
 			case 8:
+			{
 				system("clear");
+				string opc;
+				cout<<"¿Desea cargar una copia externa? (Por defecto: s/n): ";
+				cin>>opc;
+
+				system("clear");
+
+				if(opc!="s")
+				{
+					cout<<"Volviendo al menu... ";
+					sleep(1);
+					system("clear");
+					break;
+				}
+
+				cout<<"Introduzca el nombre de la copia a cargar: ";
+				cin>>opc;
+				if(cargarCopiaExterna(opc))
+				{	
+					d.setNombreBD(opc);
+					d.setAlumnos();
+					cout<<endl<<"Copia de Seguridad Cargada"<<endl;
+				}
+				else	cout<<endl<<"Error al cargar la Copia de Seguridad externa"<<endl;
+
+				sleep(2);
+				system("clear");
+			}
 			break;
 
 			case 0:
