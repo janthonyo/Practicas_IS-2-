@@ -39,6 +39,7 @@ bool BD::setAlumnos() {
 
 		// push_back añade el elemento recibido al final de la lista
 		alumnos_.push_back(alumno);
+		numero_alumnos_++;
 	}
 
 	// close() cierra el fichero
@@ -168,53 +169,61 @@ bool BD::modificarAlumno(string datos, int modo)
 		for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
 		{
 			if(i->getApellidos()==datos) 
-			Alumno alumno(i->getDni(), i->getNombre(), i->getApellidos(), i->getFechaNacimiento(), i->getTelefono(), i->getEmail(), i->getDomicilio(), i->getCurso(), i->getNota(), i->getEquipo(), i->getLider());
-
-
+			{
+				Alumno alumno(i->getDni(), i->getNombre(), i->getApellidos(), i->getFechaNacimiento(), i->getTelefono(), i->getEmail(), i->getDomicilio(), i->getCurso(), i->getNota(), i->getEquipo(), i->getLider());
+				aux.push_back(alumno);
+				MostrarUnAlumno(i->getDni());
+			}
 		}
-
-		//mostrarAlumnos(aux);
 
 		if(aux.size()==1)
 		{
-			cout<<"Introduzca los nuevos datos. Para conservar los antiguos, introduzcalos nuevamente."<<endl<<endl;
-				cout<<"-------------------------------------------------------------"<<endl;
-				cout<<"DNI: ";
-				cin>>dni;
-				i->setDni(dni);
-				cout<<"Nombre: ";
-				cin>>nombre;
-				i->setNombre(nombre);
-				cout<<"Apellido: ";
-				cin>>apellidos;
-				i->setApellidos(apellidos);
-				cout<<"Fecha de nacimiento (introducir como: dd/mm/yy): ";
-				cin>>fechaNacimiento;
-				i->setFechaNacimiento(fechaNacimiento);
-				cout<<"Telefono: ";
-				cin>>telefono;
-				i->setTelefono(telefono);
-				cout<<"Email: ";
-				cin>>email;
-				i->setEmail(email);
-				cout<<"Domicilio: ";
-				cin>>domicilio;
-				i->setDomicilio(domicilio);
-				cout<<"Curso: ";
-				cin>>curso;
-				i->setCurso(curso);
-				cout<<"Nota: ";
-				cin>>nota;
-				i->setNota(nota);
-				cout<<"Equipo: ";
-				cin>>equipo;
-				i->setEquipo(equipo);
-				cout<<"¿Es lider? (Si/No): ";
-				cin>>lider;
-				found=1;
-				cout<<"-------------------------------------------------------------"<<endl;
-				return true;
+
+			for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
+			{
+				if(i->getApellidos()==datos) 
+				{
+					cout<<"Introduzca los nuevos datos. Para conservar los antiguos, introduzcalos nuevamente."<<endl<<endl;
+					cout<<"-------------------------------------------------------------"<<endl;
+					cout<<"DNI: ";
+					cin>>dni;
+					i->setDni(dni);
+					cout<<"Nombre: ";
+					cin>>nombre;
+					i->setNombre(nombre);
+					cout<<"Apellido: ";
+					cin>>apellidos;
+					i->setApellidos(apellidos);
+					cout<<"Fecha de nacimiento (introducir como: dd/mm/yy): ";
+					cin>>fechaNacimiento;
+					i->setFechaNacimiento(fechaNacimiento);
+					cout<<"Telefono: ";
+					cin>>telefono;
+					i->setTelefono(telefono);
+					cout<<"Email: ";
+					cin>>email;
+					i->setEmail(email);
+					cout<<"Domicilio: ";
+					cin>>domicilio;
+					i->setDomicilio(domicilio);
+					cout<<"Curso: ";
+					cin>>curso;
+					i->setCurso(curso);
+					cout<<"Nota: ";
+					cin>>nota;
+					i->setNota(nota);
+					cout<<"Equipo: ";
+					cin>>equipo;
+					i->setEquipo(equipo);
+					cout<<"¿Es lider? (Si/No): ";
+					cin>>lider;
+					found=1;
+					cout<<"-------------------------------------------------------------"<<endl;
+					return true;
+				}
+			}
 		}
+
 		else if(aux.size()>=1)
 		{
 
@@ -222,7 +231,7 @@ bool BD::modificarAlumno(string datos, int modo)
 			cout<<"Se han encontrado varias coincidencias de apellidos."<<endl;
 			cout<<"Introduzca el DNI del alumno a eliminar."<<endl<<endl;
 			cin>>dni;
-			for(i=aux.begin(); i!=aux.end(); i++)
+			for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
 			{
 				if((i->getDni()==dni)&&(i->getApellidos()==datos))
 				{
@@ -311,7 +320,7 @@ int found=0;
 for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
 {
 
-	if(buscarAlumnoDni(dni)==true){
+	if(i->getDni()==dni){
 		cout<<"-----------------------------------------------------"<<endl;
 		cout<<"DNI: "<<i->getDni()<<endl;
 		cout<<"Nombre: " <<i->getNombre()<<endl;
@@ -329,7 +338,7 @@ for(i=alumnos_.begin(); i!=alumnos_.end(); i++)
 	}
 }
 
-if(found==0)	cout<<"Alumno no encontrado en la base de datos."<<endl;
+if(found==0)	cout<<"Alumno no encontrado en la base de datos."<<endl<<endl;
 
 };
 

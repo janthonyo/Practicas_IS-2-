@@ -1,4 +1,0 @@
-user,12345,2
-profe,contra,1
-i72,excelsior,2
-user,contra,2

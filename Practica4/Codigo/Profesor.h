@@ -5,6 +5,13 @@
 #include <fstream>
 //#include "alumno.h"
 
+struct datos_profesor
+{
+	char _usuario[100];
+	char _contra[100];
+	int _rol;
+};
+
 class Profesor
 {
 private:

@@ -12,37 +12,22 @@ using namespace std;
 
 int Profesor::login(std::string usuario, std::string contrasena)
 {
-	char aux[50];
-	std::string user_file;
-	std::string key_file;
-	int rol_file;
+	datos_profesor aux;
 	int encontrado=0;
+	std::string user, key;
 
-	//Creamos las variables donde posteriormente guardaremos los datos del fichero profesores.txt
+	std::ifstream fichero("profesores.bin", ios::in | ios::binary);
 
-
-	std::ifstream fichero("profesores.txt");
-	//Abre el fichero profesores.txt para lectura.
-
-	//Estructura del fichero: usuario, contraseña, rol.
-	while((fichero.getline(aux, 50, ','))&&(encontrado==0))
+	while((fichero.read((char*)&aux, sizeof(datos_profesor)))&&(encontrado==0))
 	{
-		user_file=aux;
-		fichero.getline(aux, 50, ',');
-		key_file=aux;
-		fichero.getline(aux, 50);
-		rol_file=atoi(aux);
-
-		if((user_file==usuario)&&(key_file==contrasena))
+		user=aux._usuario;
+		key=aux._contra;
+		if((usuario==user)&&(contrasena==key))
 		{
-			usuario_=user_file;
-			rol_=rol_file;
+			usuario_=aux._usuario;
+			rol_=aux._rol;
 			encontrado=1;
 		}
-
-		//Si los datos correspondientes al usuario y la contraseña del fichero son iguales que los
-		//datos introcudidos por el usuario, se le asigna a la case profesor el nombre del usuario
-		//y el rol que tiene asignado (ayudante o coordinador).
 	}
 
 	fichero.close();
@@ -52,39 +37,17 @@ int Profesor::login(std::string usuario, std::string contrasena)
 		std::cout<<"Nombre de usuario o contraseña incorrectos."<<std::endl<<std::endl;
 		return 0;
 	}
-
-	//Si el usuario no ha sido encontrado, el programa mostraria un mensaje y se volverian a pedir los datos 
-
 	if(encontrado==1) return rol_;
-
-	//Si el profesor ha sido encontrado, el sistema devuelve el rol de este para mostrarle las funciones a las
-	//que tiene acceso.
-
 }
 
 void Profesor::register_ayt()
 {
-	std::string usuario;
-	std::string contra;
-	std::string verified_contra;
-	char datos [50];
+	
+	char verified_contra[30];
+	datos_profesor aux;
+	std::ofstream file("profesores.bin", ios::out | ios::binary | ios::app);
 
-	std::ofstream aux("auxiliar.txt");
-	std::ifstream file("profesores.txt");
-
-	while(file.getline(datos, 50, ','))
-	{
-		aux<<datos<<",";
-		file.getline(datos, 50, ',');
-		aux<<datos<<",";
-		file.getline(datos, 50);
-		aux<<datos<<"\n";
-		
-
-	}
-
-	file.close();
-	remove("profesores.txt");
+	aux._rol=2;
 	//Guardamos los datos en otro fichero auxiliar y borramos el fichero profesores para mantener los datos (TAMPOCO LOS GUARDA).
 
 	//Creamos las variables que necesitaremos para el registro de un nuevo usuario.
@@ -102,19 +65,21 @@ void Profesor::register_ayt()
 
 	do{
 		std::cout<<"Usuario: ";
-		std::cin>>usuario;
+		cin.ignore();
+		cin.getline(aux._usuario, 100);
+
 		std::cout<<std::endl<<"Contraseña: ";
-		std::cin>>contra;
-		std::cout<<std::endl<<"Verifica la contraseña: ";
-		std::cin>>verified_contra;
+		cin.getline(aux._contra, 100);
+		
+		std::cout<<std::endl<<"Verifica la contraseña: ";		
+		cin.getline(verified_contra, 30);
 
 		//El programa pide al usuario que introduzca el usuario que usara y una contraseña que tendra que validar.
 
-		if(contra==verified_contra)
+		if(strcmp(verified_contra, aux._contra)==0)
 		{
-			aux << usuario << "," << contra << "," <<"2\n";
-			aux.close();
-			rename("auxiliar.txt", "profesores.txt");
+			file.write((char*)&aux, sizeof(datos_profesor));
+			file.close();
 			system("clear");
 			std::cout<<"Registro completado con éxito"<<std::endl;
 			sleep(3);
@@ -137,6 +102,6 @@ void Profesor::register_ayt()
 
 			//Si la contraseña no es correcta, el programa mostrara un mensaje y pedira los datos de nuevo.
 		}
-	}while(contra!=verified_contra);
+	}while(strcmp(verified_contra, aux._contra)!=0);
 }
 

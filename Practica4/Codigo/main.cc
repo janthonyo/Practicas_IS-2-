@@ -70,13 +70,17 @@ int opcion;
 	system("clear");
 
 	std::cout<<"Introduzca el nombre de la base de datos a usar."<<std::endl;
-	std::cout<<"Si no existe la BD, se creara una con dicho nombre."<<std::endl<<std::endl;
+	std::cout<<"Si no existe la BD, se creara una con dicho nombre."<<std::endl;
+	std::cout<<"Introduzca el nombre sin la extension."<<std::endl<<std::endl;
+	std::cout<<"Nombre: > ";
 
 	std::string nombreBd;
 	cin>>nombreBd;
 
 	BD d(nombreBd);
 	d.setAlumnos();
+
+	system("clear");
 
 	do 
 	{
@@ -145,7 +149,7 @@ int opcion;
 				cin.ignore();
 				cin>>apellidos;
 
-				cout << "\tFecha de nacimiento : ";
+				cout << "\tFecha de nacimiento (dd/mm/yy): ";
 				cin.ignore();
 				cin>>fechaNacimiento;
 
@@ -157,7 +161,7 @@ int opcion;
 				cin.ignore();
 				cin>>email;
 
-				cout << "\tDomicilio(Todo junto) : ";
+				cout << "\tDomicilio (Todo junto) : ";
 				cin.ignore();
 				cin >> domicilio;
 
@@ -197,9 +201,9 @@ int opcion;
 				else {cout<<endl<<"\tEl alumno no se encuentra en la base de datos."<<endl;}
 				// DATOS Opcionales
 				cout <<endl<< "\t¿Quiere introducir los datos opcionales del nuevo alumno?" << endl;
-				cout << "\tDatos opcionales:" << endl;
+				cout << endl <<"\tDatos opcionales:" << endl << endl;
 				cout << "\t\tLider\n\t\tEquipo\n";
-				cout << "\tPulse 0 si quiere introducir los datos opcionales: " <<endl;	
+				cout << endl << endl << "\tPulse 0 si quiere introducir los datos opcionales: " <<endl;	
 
 				int datosOpc;
 				cout<<endl<<endl<<"Opcion: ";
@@ -236,7 +240,7 @@ int opcion;
 				cout<<"¿Como desea buscar al alumno para modificar?"<<endl<<endl;
 
 				cout<<"\t1. Por DNI."<<endl;
-				cout<<"\t2. Por Apellido."<<endl;
+				cout<<"\t2. Por Apellido."<<endl<<endl;
 
 				cout<<"Opcion: ";
 				cin>>opc;
@@ -249,8 +253,7 @@ int opcion;
 					if(d.modificarAlumno(searchDni, opc)==true)
 					{
 						system("clear");
-						cout<<"Alumno modificado con éxito"<<endl;
-						if(d.escribeBD())	cout<<"Exito"<<endl;
+						if(d.escribeBD())cout<<"Alumno modificado con éxito"<<endl;
 
 					}
 					else
@@ -265,7 +268,7 @@ int opcion;
 					system("clear");
 					cout<<"Introduzca el apellido: ";
 					cin>>searchApellido;
-					if(d.modificarAlumno(searchDni, opc)==true)
+					if(d.modificarAlumno(searchApellido, opc)==true)
 					{
 						system("clear");
 						cout<<"Alumno modificado con éxito"<<endl;
@@ -320,7 +323,15 @@ int opcion;
 
 				system("clear");
 
-				if(opc==1)	d.MostrarTodoslosAlumnos();
+				if(opc==1)	
+				{
+					d.MostrarTodoslosAlumnos();
+					cout<<endl<<"--<Pulse <Intro> para volver al menu>--";
+					cin.get();
+					cin.ignore();
+					system("clear");
+				}
+				
 				else if(opc==2)
 				{
 					string dni;
@@ -328,6 +339,10 @@ int opcion;
 					cout<<"Introduzca el Dni del alumno en cuestion:";
 					cin>>dni;
 					d.MostrarUnAlumno(dni);
+					cout<<endl<<"--<Pulse <Intro> para volver al menu>--";
+					cin.get();
+					cin.ignore();
+					system("clear");
 				}
 				else	cout<<"Dicha opcion no existe."<<endl;
 
@@ -337,6 +352,7 @@ int opcion;
 			case 5:
 			{
 				system("clear");
+				if(acceso==2) break;
 				int opc=0;
 	
 				do{
@@ -427,7 +443,7 @@ int opcion;
 			case 6:
 			{
 				system("clear");
-
+				if(acceso==2) break;
 				string name_file;
 				cout<<"Introduzca el nombre de la copia a cargar: "<<endl<<endl;
 				cout<<"Nombre: ";
@@ -446,6 +462,7 @@ int opcion;
 			{
 				string opc;
 				system("clear");
+				if(acceso==2) break;
 				cout<<"¿Se hará una copia de la Base de datos actual? (Por defecto: s/n): ";
 
 				cin>>opc;
@@ -467,6 +484,7 @@ int opcion;
 			case 8:
 			{
 				system("clear");
+				if(acceso==2) break;
 				string opc;
 				cout<<"¿Desea cargar una copia externa? (Por defecto: s/n): ";
 				cin>>opc;
